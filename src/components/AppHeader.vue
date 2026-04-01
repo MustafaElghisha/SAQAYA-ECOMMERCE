@@ -2,14 +2,26 @@
   <div class="wrapper">
     <header class="header">
       <div class="header__logo">
-        <img src="../assets/icons/Logo.svg" alt="Website Logo" />
+        <router-link to="/">
+          <img src="../assets/icons/Logo.svg" alt="Website Logo" />
+        </router-link>
       </div>
 
       <nav class="header__nav">
         <ul class="header__nav-list">
-          <li class="header__nav-item">Home</li>
-          <li class="header__nav-item">Contact</li>
-          <li class="header__nav-item">About</li>
+          <li class="header__nav-item">
+            <router-link class="header__nav-link" to="/">Home</router-link>
+          </li>
+          <li class="header__nav-item">
+            <router-link class="header__nav-link" to="/contact">
+              Contact
+            </router-link>
+          </li>
+          <li class="header__nav-item">
+            <router-link class="header__nav-link" to="about-us">
+              About
+            </router-link>
+          </li>
         </ul>
       </nav>
 
@@ -41,7 +53,7 @@
 
 <style lang="css" scoped>
 .wrapper {
-  border-bottom: 1px solid rgba(0, 0, 0, 50%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .header {
   max-width: 1200px;
@@ -58,7 +70,7 @@
   column-gap: 48px;
 }
 
-.header__nav-item {
+.header__nav-link {
   color: #000000;
 }
 
