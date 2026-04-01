@@ -7,15 +7,9 @@
 
       <nav class="header__nav">
         <ul class="header__nav-list">
-          <li class="header__nav-item">
-            <a href="/" class="header__nav-link">Home</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="/contact" class="header__nav-link">Contact</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="/about" class="header__nav-link">About</a>
-          </li>
+          <li class="header__nav-item">Home</li>
+          <li class="header__nav-item">Contact</li>
+          <li class="header__nav-item">About</li>
         </ul>
       </nav>
 
@@ -64,7 +58,7 @@
   column-gap: 48px;
 }
 
-.header__nav-link {
+.header__nav-item {
   color: #000000;
 }
 
