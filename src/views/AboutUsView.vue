@@ -176,39 +176,7 @@
       </div>
     </div>
 
-    <div class="about__features">
-      <ul class="about__features-list">
-        <li class="about__feature">
-          <div class="about__feature-icon">
-            <img src="../assets/icons/icon-delivery.svg" alt="" />
-          </div>
-          <h2 class="about__feature-title">FREE AND FAST DELIVERY</h2>
-          <p class="about__feature-description">
-            Free delivery for all orders over $140
-          </p>
-        </li>
-
-        <li class="about__feature">
-          <div class="about__feature-icon">
-            <img src="../assets/icons/Icon-Customer service.svg" alt="" />
-          </div>
-          <h2 class="about__feature-title">24/7 CUSTOMER SERVICE</h2>
-          <p class="about__feature-description">
-            Friendly 24/7 customer support
-          </p>
-        </li>
-
-        <li class="about__feature">
-          <div class="about__feature-icon">
-            <img src="../assets/icons/Icon-secure.svg" alt="" />
-          </div>
-          <h2 class="about__feature-title">MONEY BACK GUARANTEE</h2>
-          <p class="about__feature-description">
-            We return money within 30 days
-          </p>
-        </li>
-      </ul>
-    </div>
+    <FeaturesGrid />
   </div>
 </template>
 
@@ -250,7 +218,7 @@
   &:hover {
     color: white;
     background-color: #db4444;
-    border: none;
+    border-color: transparent;
     .about__stat-icon {
       background-color: white;
       outline-color: rgba(255, 255, 255, 0.3);
@@ -291,29 +259,13 @@
   display: flex;
   column-gap: 16px;
 }
-.about__feature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.about__feature-icon {
-  padding: 9px;
-  background-color: black;
-  border-radius: 50%;
-  outline: 11px solid rgba(47, 46, 48, 0.3);
-}
-.about__features-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 260px);
-  gap: 86px;
-  justify-content: center;
-}
-.about__feature-title {
-  font-weight: 600;
-  font-size: 20px;
-  padding-block: 24px 8px;
-}
-.about__feature-description {
-  font-size: 14px;
-}
 </style>
+
+<script>
+import FeaturesGrid from "@/components/FeaturesGrid.vue";
+export default {
+  components: {
+    FeaturesGrid,
+  },
+};
+</script>
