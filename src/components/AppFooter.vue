@@ -159,8 +159,8 @@
 
 .footer__container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  column-gap: 80px;
+  grid-template-columns: repeat(auto-fill, 190px);
+  gap: 50px;
   padding-bottom: 60px;
 }
 
@@ -197,7 +197,7 @@ h2 {
 
 .footer__send-icon {
   position: absolute;
-  right: 16px;
+  right: 0;
   bottom: 10px;
 }
 .footer__app-badges {

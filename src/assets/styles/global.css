@@ -129,24 +129,6 @@ which suggests default styling will be removed */
     min-height: 100svh;
   }
 
-  /* Balance text wrapping on headings */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    text-wrap: balance;
-  }
-
-  /* improve readability with max-width on paragraphs and lists */
-  /* prevent orphans in supported browsers */
-  p,
-  li {
-    max-width: 65ch;
-    text-wrap: pretty;
-  }
-
   /* Make images easier to work with */
   img,
   picture,
