@@ -16,8 +16,8 @@
         <ProductCard v-for="n in 4" :key="n" />
       </ul>
       <div class="products__view-all">
-        <router-link to="/productss" class="products__view-all-btn">
-          View All productss
+        <router-link to="/products" class="products__view-all-btn">
+          View All products
         </router-link>
       </div>
     </section>
@@ -82,16 +82,16 @@
 
     <section class="products">
       <div class="products__header">
-        <span class="products__tag">Our productss</span>
+        <span class="products__tag">Our products</span>
       </div>
-      <h2 class="products__title">Explore Our productss</h2>
+      <h2 class="products__title">Explore Our products</h2>
 
       <ul class="products__list">
         <ProductCard v-for="n in 8" :key="n" />
       </ul>
       <div class="products__view-all">
-        <router-link to="/productss" class="products__view-all-btn">
-          View All productss
+        <router-link to="/products" class="products__view-all-btn">
+          View All products
         </router-link>
       </div>
     </section>
