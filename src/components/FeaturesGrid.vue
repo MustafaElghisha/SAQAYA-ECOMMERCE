@@ -19,6 +19,9 @@
 </template>
 
 <style lang="css" scoped>
+.about__features {
+  margin-block: 140px;
+}
 .about__feature {
   display: flex;
   flex-direction: column;
