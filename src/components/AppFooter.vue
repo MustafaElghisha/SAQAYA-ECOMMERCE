@@ -1,7 +1,7 @@
 <template>
   <div class="footer-wrapper">
     <footer class="footer">
-      <div class="footer__container">
+      <div class="footer__main">
         <div class="footer__section">
           <div class="footer__logo">
             <img src="../assets/icons/Logo-white.svg" alt="Website Logo" />
@@ -139,60 +139,59 @@
 
 .footer {
   margin-inline: auto;
-  max-width: 1200px;
-  padding: 80px 10px 24px;
+  max-width: 75rem;
+  padding: 1.25rem 1rem 1.5rem;
 }
 
-.footer__container {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  gap: 80px;
-  padding-bottom: 60px;
+.footer__main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 5rem;
+  padding-block: 3.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer__heading {
   font-weight: 500;
   font-size: var(--fs-lg);
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 .footer__logo {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .footer__nav-list {
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
+  row-gap: 1rem;
 }
 .footer__nav-item {
   max-width: 18ch;
 }
 
-.footer__email-input {
-  background: transparent;
-  outline: none;
-  border: 2px solid #fafafa;
-  border-radius: 4px;
-  max-width: 216px;
-  padding: 8px 16px;
-  color: rgba(250, 250, 250, 0.4);
-  margin-top: 16px;
-}
 .footer__subscribe-form {
-  position: relative;
   display: flex;
   align-items: center;
+  border: 2px solid #fafafa;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+}
+.footer__email-input {
+  max-width: 10rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fafafa;
 }
 .footer__send-icon {
-  position: absolute;
-  right: 0;
-  bottom: 10px;
+  cursor: pointer;
 }
 
 .footer__app-badges {
   display: flex;
-  column-gap: 8px;
-  padding-block: 8px 24px;
+  column-gap: 0.5rem;
+  padding-block: 0.5rem 1.5rem;
 }
 .footer__store-badges {
   display: flex;
@@ -207,14 +206,14 @@
 }
 .footer__social-list {
   display: flex;
-  column-gap: 24px;
+  column-gap: 1.5rem;
 }
 
 .footer__copyright {
   display: flex;
   justify-content: center;
   column-gap: 6px;
-  padding-top: 16px;
+  padding-top: 1rem;
 }
 .footer__copyright-text {
   color: rgba(249, 249, 249, 0.3);
