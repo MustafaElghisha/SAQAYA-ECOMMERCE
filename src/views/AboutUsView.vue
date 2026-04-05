@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="about__header">
+    <section class="section about__header">
       <div class="about__story">
         <h1 class="about__title">Our Story</h1>
         <p class="about__description">
@@ -16,174 +16,66 @@
           consumer.
         </p>
       </div>
-      <div class="about__image-wrapper">
-        <img
-          class="about__image"
-          src="../assets/images/AboutImage.png"
-          alt=""
-        />
-      </div>
-    </div>
+      <img
+        class="about__image"
+        src="../assets/images/AboutImage.png"
+        alt="Two women with bags taking a selfie"
+      />
+    </section>
 
-    <div class="about__stats">
-      <div class="about__stat-card">
-        <div class="about__stat-icon">
-          <img src="../assets/icons/shop.svg" alt="" />
+    <section class="section about__stats">
+      <div class="about__stat-card" v-for="(stat, index) in stats" :key="index">
+        <div class="about__stat-icon-wrapper">
+          <img class="about__stat-icon" :src="stat.icon" :alt="stat.alt" />
         </div>
-        <span class="about__stat-number">10.5k</span>
-        <p class="about__stat-label">Sellers active in our site</p>
+        <span class="about__stat-number">{{ stat.number }}</span>
+        <p class="about__stat-label">{{ stat.label }}</p>
       </div>
+    </section>
 
-      <div class="about__stat-card">
-        <div class="about__stat-icon">
-          <img src="../assets/icons/Sale.svg" alt="" width="40" height="40" />
-        </div>
-        <span class="about__stat-number">33k</span>
-        <p class="about__stat-label">Monthly Produduct Sale</p>
-      </div>
-
-      <div class="about__stat-card">
-        <div class="about__stat-icon">
-          <img
-            src="../assets/icons/Shopping bag.svg"
-            alt=""
-            width="40"
-            height="40"
-          />
-        </div>
-        <span class="about__stat-number">45.5k</span>
-        <p class="about__stat-label">Customer active in our site</p>
-      </div>
-
-      <div class="about__stat-card">
-        <div class="about__stat-icon">
-          <img
-            src="../assets/icons/Moneybag.svg"
-            alt=""
-            width="40"
-            height="40"
-          />
-        </div>
-        <span class="about__stat-number">25k</span>
-        <p class="about__stat-label">Annual gross sale in our site</p>
-      </div>
-    </div>
-
-    <div class="about__team">
-      <div class="about__member">
+    <section class="section about__team">
+      <div
+        class="about__member"
+        v-for="(member, index) in members"
+        :key="index"
+      >
         <img
           class="about__member-image"
-          src="../assets/images/Tom-Cruise.png"
-          alt=""
+          :src="member.image"
+          :alt="member.name"
         />
-        <h2 class="about__member-name">Tom Cruise</h2>
-        <p class="about__member-role">Founder & Chairman</p>
-        <div class="about__social-links">
-          <ul class="about__social-list">
-            <li class="about__social-item">
-              <img
-                class="about__social-icon"
-                src="../assets/icons/Icon-Twitter-Black.svg"
-                alt=""
-              />
-            </li>
-            <li class="about__social-item">
-              <img
-                class="about__social-icon"
-                src="../assets/icons/Icon-Instagram-Black.svg"
-                alt=""
-              />
-            </li>
-            <li class="about__social-item">
-              <img
-                class="about__social-icon"
-                src="../assets/icons/Icon-Linkedin-Black.svg"
-                alt=""
-              />
-            </li>
-          </ul>
-        </div>
+        <h2 class="about__member-name">{{ member.name }}</h2>
+        <p class="about__member-role">{{ member.role }}</p>
+        <ul class="about__social-list">
+          <li
+            class="about__social-item"
+            v-for="(social, index) in socialLinks"
+            :key="index"
+          >
+            <img
+              class="about__social-icon"
+              :src="social.icon"
+              :alt="social.alt"
+            />
+          </li>
+        </ul>
       </div>
+    </section>
 
-      <div class="about__member">
-        <img
-          class="about__member-image"
-          src="../assets/images/Emma-Watson.png"
-          alt=""
-        />
-        <h2 class="about__member-name">Emma Watson</h2>
-        <p class="about__member-role">Managing Director</p>
-        <div class="about__social-links">
-          <ul class="about__social-list">
-            <li class="about__social-item">
-              <img
-                class="about__social-icon"
-                src="../assets/icons/Icon-Twitter-Black.svg"
-                alt=""
-              />
-            </li>
-            <li class="about__social-item">
-              <img
-                class="about__social-icon"
-                src="../assets/icons/Icon-Instagram-Black.svg"
-                alt=""
-              />
-            </li>
-            <li class="about__social-item">
-              <img
-                class="about__social-icon"
-                src="../assets/icons/Icon-Linkedin-Black.svg"
-                alt=""
-              />
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="about__member">
-        <img
-          class="about__member-image"
-          src="../assets/images/Will-Smith.png"
-          alt=""
-        />
-        <h2 class="about__member-name">Will Smith</h2>
-        <p class="about__member-role">Product Designer</p>
-        <div class="about__social-links">
-          <ul class="about__social-list">
-            <li class="about__social-item">
-              <img
-                class="about__social-icon"
-                src="../assets/icons/Icon-Twitter-Black.svg"
-                alt=""
-              />
-            </li>
-            <li class="about__social-item">
-              <img
-                class="about__social-icon"
-                src="../assets/icons/Icon-Instagram-Black.svg"
-                alt=""
-              />
-            </li>
-            <li class="about__social-item">
-              <img
-                class="about__social-icon"
-                src="../assets/icons/Icon-Linkedin-Black.svg"
-                alt=""
-              />
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <FeaturesGrid />
+    <section class="section">
+      <FeaturesList />
+    </section>
   </div>
 </template>
 
 <style lang="css" scoped>
+.section {
+  margin-block: 140px;
+}
+
 .about {
   max-width: 1200px;
-  margin: 140px auto;
+  margin-inline: auto;
 }
 .about__header {
   display: grid;
@@ -192,54 +84,58 @@
   align-items: center;
 }
 .about__title {
-  margin-bottom: 40px;
-  font-weight: 500;
   font-size: 54px;
+  font-weight: 500;
+  margin-bottom: 40px;
 }
 .about__description {
   margin-bottom: 24px;
 }
+
 .about__stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, 270px);
   gap: 30px;
-  margin-block: 140px;
   justify-content: center;
 }
 .about__stat-card {
-  padding: 32px 36px;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  padding: 32px 36px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
   transition: all 200ms ease-in-out;
+
   &:hover {
     color: white;
-    background-color: #db4444;
+    background-color: var(--clr-primary-500);
     border-color: transparent;
-    .about__stat-icon {
+
+    .about__stat-icon-wrapper {
       background-color: white;
       outline-color: rgba(255, 255, 255, 0.3);
+
       > img {
-        filter: brightness(0) invert(0);
+        filter: invert(100%);
+        transition: all 200ms ease-in-out;
       }
     }
   }
 }
-.about__stat-icon {
+.about__stat-icon-wrapper {
   padding: 9px;
   background-color: black;
   border-radius: 50%;
   outline: 11px solid rgba(47, 46, 48, 0.3);
   transition: all 200ms ease-in-out;
 }
-
 .about__stat-number {
-  padding-block: 24px 12px;
+  font-size: var(--fs-2xl);
   font-weight: 700;
-  font-size: 32px;
+  padding-block: 24px 12px;
 }
 
 .about__team {
@@ -247,25 +143,99 @@
   grid-template-columns: repeat(auto-fit, 370px);
   justify-content: center;
   gap: 30px;
-  margin-bottom: 196px;
 }
 .about__member-name {
+  font-size: var(--fs-2xl);
   font-weight: 500;
-  font-size: 32px;
   padding-block: 32px 8px;
 }
 .about__social-list {
-  padding-top: 16px;
   display: flex;
   column-gap: 16px;
+  padding-top: 16px;
 }
 </style>
 
 <script>
-import FeaturesGrid from "@/components/FeaturesGrid.vue";
+import TomCruise from "@/assets/images/Tom-Cruise.png";
+import EmmaWatson from "@/assets/images/Emma-Watson.png";
+import WillSmith from "@/assets/images/Will-Smith.png";
+
+import twitterIcon from "@/assets/icons/Icon-Twitter-Black.svg";
+import instagramIcon from "@/assets/icons/Icon-Instagram-Black.svg";
+import linkedinIcon from "@/assets/icons/Icon-Linkedin-Black.svg";
+
+import shopIcon from "@/assets/icons/shop.svg";
+import saleIcon from "@/assets/icons/Sale.svg";
+import shoppingBagIcon from "@/assets/icons/Shopping bag.svg";
+import moneyBagIcon from "@/assets/icons/Moneybag.svg";
+
+import FeaturesList from "@/components/FeaturesList.vue";
+
 export default {
   components: {
-    FeaturesGrid,
+    FeaturesList,
+  },
+  data() {
+    return {
+      members: [
+        {
+          image: TomCruise,
+          name: "Tom Cruise",
+          role: "Founder & Chairman",
+        },
+        {
+          image: EmmaWatson,
+          name: "Emma Watson",
+          role: "Managing Director",
+        },
+        {
+          image: WillSmith,
+          name: "Will Smith",
+          role: "Product Designer",
+        },
+      ],
+      socialLinks: [
+        {
+          icon: twitterIcon,
+          alt: "twitter icon",
+        },
+        {
+          icon: instagramIcon,
+          alt: "instagram icon",
+        },
+        {
+          icon: linkedinIcon,
+          alt: "linkedin icon",
+        },
+      ],
+      stats: [
+        {
+          icon: shopIcon,
+          alt: "shop icon",
+          number: "10.5k",
+          label: "Sellers active in our site",
+        },
+        {
+          icon: saleIcon,
+          alt: "slae icon",
+          number: "33k",
+          label: "Monthly Produduct Sale",
+        },
+        {
+          icon: shoppingBagIcon,
+          alt: "shopping bag icon",
+          number: "45.5k",
+          label: "Customer active in our site",
+        },
+        {
+          icon: moneyBagIcon,
+          alt: "money bag icon",
+          number: "25k",
+          label: "Annual gross sale in our site",
+        },
+      ],
+    };
   },
 };
 </script>
