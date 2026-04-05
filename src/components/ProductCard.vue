@@ -8,14 +8,14 @@
       />
       <img
         src="../assets/icons/heart.svg"
-        alt=""
+        alt="heart"
         width="24"
         height="24"
         class="product-card__product-fav"
       />
       <img
         src="../assets/icons/Quick View.svg"
-        alt=""
+        alt="view"
         width="24"
         height="24"
         class="product-card__product-view"

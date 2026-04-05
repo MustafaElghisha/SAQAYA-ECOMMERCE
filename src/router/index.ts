@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 
+import MainLayout from "@/layouts/MainLayout.vue";
 import HomeView from "@/views/HomeView.vue";
 import AboutUsView from "@/views/AboutUsView.vue";
 import ContactView from "@/views/ContactView.vue";
@@ -12,29 +13,35 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
-  },
+    component: MainLayout,
+    children: [
+      {
+        path: "",
+        name: "home",
+        component: HomeView,
+      },
 
-  {
-    path: "/about-us",
-    name: "about-us",
-    component: AboutUsView,
-  },
-  {
-    path: "/contact",
-    name: "contact",
-    component: ContactView,
-  },
-  {
-    path: "/products",
-    name: "products",
-    component: ProductsView,
-  },
-  {
-    path: "*",
-    name: "not-found",
-    component: NotFoundView,
+      {
+        path: "/about-us",
+        name: "about-us",
+        component: AboutUsView,
+      },
+      {
+        path: "/contact",
+        name: "contact",
+        component: ContactView,
+      },
+      {
+        path: "/products",
+        name: "products",
+        component: ProductsView,
+      },
+      {
+        path: "*",
+        name: "not-found",
+        component: NotFoundView,
+      },
+    ],
   },
 ];
 
