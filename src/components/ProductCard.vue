@@ -81,11 +81,11 @@
 }
 .product-card__review-count {
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   color: rgba(0, 0, 0, 0.5);
 }
 .product-card__current-price {
-  color: #db4444;
+  color: var(--clr-primary-500);
 }
 .product-card__original-price {
   color: rgba(0, 0, 0, 0.5);

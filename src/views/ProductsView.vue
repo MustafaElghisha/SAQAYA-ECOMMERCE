@@ -1,7 +1,7 @@
 <template>
-  <div class="wrapper">
-    <h1>Explore Our Products</h1>
-    <ul class="products__list">
+  <div class="explore">
+    <h1 class="explore__title">Explore Our Products</h1>
+    <ul class="explore__list">
       <ProductCard v-for="n in 12" :key="n" />
     </ul>
     <span class="btn">Load more ...</span>
@@ -9,26 +9,22 @@
 </template>
 
 <style lang="css" scoped>
-.wrapper {
-  max-width: 1200px;
-  padding-inline: 10px;
-  margin: 70px auto;
+.explore {
   display: flex;
   flex-direction: column;
   gap: 60px;
+  max-width: 1200px;
+  padding-inline: 10px;
+  margin: 70px auto;
 }
-h1 {
+.explore__title {
   font-weight: 600;
-  font-size: 36px;
+  font-size: var(--fs-3xl);
 }
 .btn {
-  color: rgb(250, 250, 250);
-  padding: 16px 48px;
-  background: rgb(219, 68, 68);
-  border-radius: 4px;
   align-self: center;
 }
-.products__list {
+.explore__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 270px);
   gap: 30px;

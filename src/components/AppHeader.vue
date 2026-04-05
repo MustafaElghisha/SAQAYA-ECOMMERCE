@@ -93,7 +93,7 @@
   border-radius: 4px;
   padding: 8px 16px;
   background-color: #f5f5f5;
-  font-size: 12px;
+  font-size: var(--fs-xs);
 }
 .header__search-icon {
   position: absolute;

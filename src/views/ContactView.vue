@@ -71,7 +71,7 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="css" scoped>
 .contact {
   padding-block: 80px 140px;
   padding-inline: 10px;
@@ -144,7 +144,7 @@
 .contact__button {
   border: none;
   color: #f5f5f5;
-  background-color: #db4444;
+  background-color: var(--clr-primary-500);
   padding: 16px 48px;
   border-radius: 4px;
   align-self: end;
