@@ -9,17 +9,13 @@
 
       <nav class="header__nav">
         <ul class="header__nav-list">
-          <li class="header__nav-item">
-            <router-link class="header__nav-link" to="/">Home</router-link>
-          </li>
-          <li class="header__nav-item">
-            <router-link class="header__nav-link" to="/contact">
-              Contact
-            </router-link>
-          </li>
-          <li class="header__nav-item">
-            <router-link class="header__nav-link" to="about-us">
-              About
+          <li
+            v-for="(link, index) in navLinks"
+            :key="index"
+            class="header__nav-item"
+          >
+            <router-link class="header__nav-link" :to="link.link">
+              {{ link.name }}
             </router-link>
           </li>
         </ul>
@@ -98,3 +94,26 @@
   cursor: pointer;
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      navLinks: [
+        {
+          name: "Home",
+          link: "/",
+        },
+        {
+          name: "Contact",
+          link: "/contact",
+        },
+        {
+          name: "About",
+          link: "/about-us",
+        },
+      ],
+    };
+  },
+};
+</script>
