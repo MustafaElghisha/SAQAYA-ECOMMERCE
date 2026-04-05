@@ -6,97 +6,63 @@
       class="home__hero-image"
     />
 
-    <section class="products">
-      <div class="products__header">
-        <span class="products__tag">Today's</span>
+    <section class="section">
+      <div class="section__header">
+        <span class="section__tag">Today's</span>
       </div>
-      <h2 class="products__title">Flash Sales</h2>
+      <h2 class="section__title">Flash Sales</h2>
 
       <ul class="products__list">
         <ProductCard v-for="n in 4" :key="n" />
       </ul>
       <div class="products__view-all">
-        <router-link to="/products" class="products__view-all-btn">
+        <router-link to="/products" class="btn products__view-all-btn">
           View All products
         </router-link>
       </div>
     </section>
 
-    <section class="categories">
-      <div class="categories__header">
-        <span class="categories__tag">Categories</span>
+    <section class="section">
+      <div class="section__header">
+        <span class="section__tag">Categories</span>
       </div>
-      <h2 class="categories__title">Browse By Category</h2>
+      <h2 class="section__title">Browse By Category</h2>
 
       <ul class="categories__list">
-        <li class="categories__item">
+        <li
+          class="category__item"
+          v-for="(category, index) in categories"
+          :key="index"
+        >
           <img
-            src="../assets/icons/Hair Dryer.svg"
-            alt="Beauty category"
-            class="categories__icon"
+            :src="category.icon"
+            :alt="category.alt"
+            class="category__icon"
           />
-          <h3 class="categories__item-title">Beauty</h3>
-        </li>
-        <li class="categories__item">
-          <img
-            src="../assets/icons/Bath tub.svg"
-            alt="Furniture category"
-            class="categories__icon"
-          />
-          <h3 class="categories__item-title">Furniture</h3>
-        </li>
-        <li class="categories__item">
-          <img
-            src="../assets/icons/Perfume icon.svg"
-            alt="Fragrance category"
-            class="categories__icon"
-          />
-          <h3 class="categories__item-title">Fragrance</h3>
-        </li>
-        <li class="categories__item">
-          <img
-            src="../assets/icons/Category-Camera.svg"
-            alt="Camera category"
-            class="categories__icon"
-          />
-          <h3 class="categories__item-title">Camera</h3>
-        </li>
-        <li class="categories__item">
-          <img
-            src="../assets/icons/Category-Headphone.svg"
-            alt="Mobile Accessories category"
-            class="categories__icon"
-          />
-          <h3 class="categories__item-title">Mobile Accessories</h3>
-        </li>
-        <li class="categories__item">
-          <img
-            src="../assets/icons/Candle.svg"
-            alt="Home Accessories category"
-            class="categories__icon"
-          />
-          <h3 class="categories__item-title">Home Accessories</h3>
+          <h3 class="category__item-title">{{ category.title }}</h3>
         </li>
       </ul>
     </section>
 
-    <section class="products">
-      <div class="products__header">
-        <span class="products__tag">Our products</span>
+    <section class="section">
+      <div class="section__header">
+        <span class="section__tag">Our products</span>
       </div>
-      <h2 class="products__title">Explore Our products</h2>
+      <h2 class="section__title">Explore Our products</h2>
 
       <ul class="products__list">
         <ProductCard v-for="n in 8" :key="n" />
       </ul>
       <div class="products__view-all">
-        <router-link to="/products" class="products__view-all-btn">
+        <router-link to="/products" class="btn products__view-all-btn">
           View All products
         </router-link>
       </div>
     </section>
 
-    <FeaturesGrid />
+    <section class="section">
+      <FeaturesList />
+    </section>
   </div>
 </template>
 
@@ -109,11 +75,10 @@
 .home__hero-image {
   margin-bottom: 32px;
 }
-section {
-  padding-block: 80px 0px;
+.section {
+  padding-block: 80px;
   &:not(:last-of-type) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding-block: 80px;
   }
 }
 .products__list {
@@ -128,32 +93,23 @@ section {
   display: flex;
   justify-content: center;
 }
-.products__view-all-btn {
-  color: rgb(250, 250, 250);
-  padding: 16px 48px;
-  background: rgb(219, 68, 68);
-  border-radius: 4px;
-}
-.categories__header,
-.products__header {
+
+.section__header {
   padding-block: 10px;
 }
-.categories__tag,
-.products__tag {
+.section__tag {
   font-weight: 600;
-  color: #db4444;
+  color: var(--clr-primary-500);
 }
-.categories__tag::before,
-.products__tag::before {
+.section__tag::before {
   content: "";
-  border: 10px solid #db4444;
+  border: 10px solid var(--clr-primary-500);
   border-radius: 4px;
   margin-inline-end: 16px;
 }
-.categories__title,
-.products__title {
+.section__title {
   font-weight: 600;
-  font-size: 36px;
+  font-size: var(--fs-3xl);
   padding-block: 20px 60px;
 }
 .categories__list {
@@ -162,43 +118,89 @@ section {
   gap: 30px;
   justify-content: center;
 }
-.categories__item {
-  padding: 24px 36px;
-  text-align: center;
+.category__item {
   display: flex;
-  row-gap: 16px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  align-items: center;
+  row-gap: 16px;
+  text-align: center;
+  cursor: pointer;
+  padding: 24px 36px;
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   transition: all 200ms ease-in-out;
+
   &:hover {
     color: white;
-    background-color: #db4444;
+    background-color: var(--clr-primary-500);
     border-color: transparent;
-    .categories__icon {
-      filter: brightness(0) invert(1);
+
+    > img {
+      filter: invert(100%);
     }
   }
 }
-.categories__icon {
+.category__icon {
   transition: all 200ms ease-in-out;
 }
-.categories__item-title {
-  font-size: 16px;
+.category__item-title {
+  font-size: var(--fs-md);
   font-weight: 400;
 }
 </style>
 
 <script>
-import FeaturesGrid from "@/components/FeaturesGrid.vue";
+import hairDryerIcon from "@/assets/icons/Hair Dryer.svg";
+import bathTub from "@/assets/icons/Bath tub.svg";
+import fragranceIcon from "@/assets/icons/Perfume icon.svg";
+import cameraIcon from "@/assets/icons/Category-Camera.svg";
+import headphone from "@/assets/icons/Category-Headphone.svg";
+import candleIcon from "@/assets/icons/Candle.svg";
+
+import FeaturesList from "@/components/FeaturesList.vue";
 import ProductCard from "@/components/ProductCard.vue";
+
 export default {
   components: {
-    FeaturesGrid,
+    FeaturesList,
     ProductCard,
+  },
+  data() {
+    return {
+      categories: [
+        {
+          icon: hairDryerIcon,
+          alt: "Beauty category",
+          title: "Beauty",
+        },
+        {
+          icon: bathTub,
+          alt: "Furniture category",
+          title: "Furniture",
+        },
+        {
+          icon: fragranceIcon,
+          alt: "Fragrance category",
+          title: "Fragrance",
+        },
+        {
+          icon: cameraIcon,
+          alt: "Camera category",
+          title: "Camera",
+        },
+        {
+          icon: headphone,
+          alt: "Mobile Accessories category",
+          title: "Mobile Accessories",
+        },
+        {
+          icon: candleIcon,
+          alt: "Home Accessories category",
+          title: "Home Accessories",
+        },
+      ],
+    };
   },
 };
 </script>
