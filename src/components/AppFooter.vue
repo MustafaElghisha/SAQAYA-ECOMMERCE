@@ -2,7 +2,7 @@
   <div class="footer-wrapper">
     <footer class="footer">
       <div class="footer__container">
-        <div class="footer__section footer__section--subscribe">
+        <div class="footer__section">
           <div class="footer__logo">
             <img src="../assets/icons/Logo-white.svg" alt="Website Logo" />
           </div>
@@ -24,47 +24,51 @@
           </div>
         </div>
 
-        <div class="footer__section footer__section--support">
+        <div class="footer__section">
           <h2 class="footer__heading">Support</h2>
           <nav class="footer__nav">
             <ul class="footer__nav-list">
-              <li class="footer__nav-item footer__nav-item--address">
-                111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
-              </li>
-              <li class="footer__nav-item footer__nav-item--email">
-                exclusive@gmail.com
-              </li>
-              <li class="footer__nav-item footer__nav-item--phone">
-                +88015-88888-9999
+              <li
+                class="footer__nav-item"
+                v-for="(item, index) in supportItems"
+                :key="index"
+              >
+                {{ item }}
               </li>
             </ul>
           </nav>
         </div>
 
-        <div class="footer__section footer__section--account">
+        <div class="footer__section">
           <h2 class="footer__heading">Account</h2>
           <nav class="footer__nav">
             <ul class="footer__nav-list">
-              <li class="footer__nav-item">My Account</li>
-              <li class="footer__nav-item">Login / Register</li>
-              <li class="footer__nav-item">Cart</li>
-              <li class="footer__nav-item">Wishlist</li>
-              <li class="footer__nav-item">Shop</li>
+              <li
+                class="footer__nav-item"
+                v-for="(item, index) in accountItems"
+                :key="index"
+              >
+                {{ item }}
+              </li>
             </ul>
           </nav>
         </div>
 
-        <div class="footer__section footer__section--quick-links">
+        <div class="footer__section">
           <h2 class="footer__heading">Quick Link</h2>
           <nav class="footer__nav">
             <ul class="footer__nav-list">
-              <li class="footer__nav-item">Privacy Policy</li>
-              <li class="footer__nav-item">Terms Of Use</li>
-              <li class="footer__nav-item">FAQ</li>
-              <li class="footer__nav-item">Contact</li>
+              <li
+                class="footer__nav-item"
+                v-for="(item, index) in quickLinkItems"
+                :key="index"
+              >
+                {{ item }}
+              </li>
             </ul>
           </nav>
         </div>
+
         <div class="footer__section">
           <h2 class="footer__heading">Download App</h2>
           <p class="footer__app-text">Save $3 with App New User Only</p>
@@ -81,14 +85,14 @@
               <img
                 src="../assets/icons/google-play.svg"
                 alt="Get it on Google Play"
-                class="footer__store-badge footer__store-badge--google"
+                class="footer__store-badge"
                 width="110"
                 height="40"
               />
               <img
                 src="../assets/icons/download-appstore.svg"
                 alt="Download on the App Store"
-                class="footer__store-badge footer__store-badge--apple"
+                class="footer__store-badge"
                 width="110"
                 height="40"
               />
@@ -97,31 +101,14 @@
 
           <nav class="footer__social-nav">
             <ul class="footer__social-list">
-              <li class="footer__social-item">
+              <li
+                class="footer__social-item"
+                v-for="(social, index) in socialLinks"
+                :key="index"
+              >
                 <img
-                  src="../assets/icons/Icon-Facebook.svg"
-                  alt="Facebook"
-                  class="footer__social-icon"
-                />
-              </li>
-              <li class="footer__social-item">
-                <img
-                  src="../assets/icons/Icon-Twitter.svg"
-                  alt="Twitter"
-                  class="footer__social-icon"
-                />
-              </li>
-              <li class="footer__social-item">
-                <img
-                  src="../assets/icons/icon-instagram.svg"
-                  alt="Instagram"
-                  class="footer__social-icon"
-                />
-              </li>
-              <li class="footer__social-item">
-                <img
-                  src="../assets/icons/Icon-Linkedin.svg"
-                  alt="LinkedIn"
+                  :src="social.icon"
+                  :alt="social.alt"
                   class="footer__social-icon"
                 />
               </li>
@@ -146,7 +133,7 @@
 
 <style lang="css" scoped>
 .footer-wrapper {
-  background-color: black;
+  background-color: var(--clr-neutral-950);
   color: #fafafa;
 }
 
@@ -154,19 +141,18 @@
   margin-inline: auto;
   max-width: 1200px;
   padding: 80px 10px 24px;
-  position: relative;
 }
 
 .footer__container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 190px);
-  gap: 50px;
+  grid-template-columns: repeat(5, auto);
+  gap: 80px;
   padding-bottom: 60px;
 }
 
-h2 {
+.footer__heading {
   font-weight: 500;
-  font-size: 20px;
+  font-size: var(--fs-lg);
   margin-bottom: 24px;
 }
 .footer__logo {
@@ -177,6 +163,9 @@ h2 {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+}
+.footer__nav-item {
+  max-width: 18ch;
 }
 
 .footer__email-input {
@@ -194,31 +183,25 @@ h2 {
   display: flex;
   align-items: center;
 }
-
 .footer__send-icon {
   position: absolute;
   right: 0;
   bottom: 10px;
 }
+
 .footer__app-badges {
   display: flex;
   column-gap: 8px;
   padding-block: 8px 24px;
 }
-
 .footer__store-badges {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 
-.footer__store-badge {
-  min-width: 110px;
-  min-height: 40px;
-}
-
 .footer__app-text {
-  font-size: 12px;
+  font-size: var(--fs-xs);
   font-weight: 500;
   color: rgba(250, 250, 250, 0.7);
 }
@@ -233,15 +216,52 @@ h2 {
   column-gap: 6px;
   padding-top: 16px;
 }
-
-.footer__copyright::before {
-  content: "";
-  position: absolute;
-  width: 100vw;
-  translate: 0 -16px;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
-}
 .footer__copyright-text {
   color: rgba(249, 249, 249, 0.3);
 }
 </style>
+
+<script>
+import facebookIcon from "@/assets/icons/Icon-Facebook.svg";
+import twitterIcon from "@/assets/icons/Icon-Twitter.svg";
+import linkedinIcon from "@/assets/icons/Linkedin.svg";
+import instagramIcon from "@/assets/icons/icon-instagram.svg";
+
+export default {
+  data() {
+    return {
+      supportItems: [
+        "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.",
+        "exclusive@gmail.com",
+        "+88015-88888-9999",
+      ],
+      accountItems: [
+        "My Account",
+        "Login / Register",
+        "Cart",
+        "Wishlist",
+        "Shop",
+      ],
+      quickLinkItems: ["Privacy Policy", "Terms Of Use", "FAQ", "Contact"],
+      socialLinks: [
+        {
+          icon: facebookIcon,
+          alt: "Facebook",
+        },
+        {
+          icon: twitterIcon,
+          alt: "Twitter",
+        },
+        {
+          icon: instagramIcon,
+          alt: "Instagram",
+        },
+        {
+          icon: linkedinIcon,
+          alt: "LinkedIn",
+        },
+      ],
+    };
+  },
+};
+</script>
