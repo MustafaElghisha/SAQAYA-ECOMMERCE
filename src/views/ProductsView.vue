@@ -12,10 +12,10 @@
 .explore {
   display: flex;
   flex-direction: column;
-  gap: 60px;
-  max-width: 1200px;
-  padding-inline: 10px;
-  margin: 70px auto;
+  gap: 3.75rem;
+  max-width: 75rem;
+  padding-inline: 0.625rem;
+  margin: 4.375rem auto;
 }
 .explore__title {
   font-weight: 600;
@@ -27,7 +27,7 @@
 .explore__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 270px);
-  gap: 30px;
+  gap: 1.875rem;
   justify-content: center;
 }
 </style>

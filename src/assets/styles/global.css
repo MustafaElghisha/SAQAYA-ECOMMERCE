@@ -344,7 +344,7 @@ which suggests default styling will be removed */
   .btn {
     color: var(--clr-neutral-100);
     background: var(--clr-primary-500);
-    padding: 16px 48px;
-    border-radius: 4px;
+    padding: 1rem 3rem;
+    border-radius: 0.25rem;
   }
 }

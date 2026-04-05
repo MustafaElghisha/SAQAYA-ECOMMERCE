@@ -70,32 +70,32 @@
 
 <style lang="css" scoped>
 .section {
-  margin-block: 140px;
+  margin-block: 8.75rem;
 }
 
 .about {
-  max-width: 1200px;
+  max-width: 75rem;
   margin-inline: auto;
 }
 .about__header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 75px;
+  column-gap: 4.5rem;
   align-items: center;
 }
 .about__title {
   font-size: 54px;
   font-weight: 500;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 .about__description {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .about__stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, 270px);
-  gap: 30px;
+  gap: 1.875rem;
   justify-content: center;
 }
 .about__stat-card {
@@ -104,9 +104,9 @@
   align-items: center;
   text-align: center;
   cursor: pointer;
-  padding: 32px 36px;
+  padding: 2rem 2.25rem;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   transition: all 200ms ease-in-out;
 
   &:hover {
@@ -126,33 +126,33 @@
   }
 }
 .about__stat-icon-wrapper {
-  padding: 9px;
+  padding: 0.625rem;
   background-color: black;
   border-radius: 50%;
-  outline: 11px solid rgba(47, 46, 48, 0.3);
+  outline: 12px solid rgba(47, 46, 48, 0.3);
   transition: all 200ms ease-in-out;
 }
 .about__stat-number {
   font-size: var(--fs-2xl);
   font-weight: 700;
-  padding-block: 24px 12px;
+  padding-block: 1.5rem 0.75rem;
 }
 
 .about__team {
   display: grid;
   grid-template-columns: repeat(auto-fit, 370px);
   justify-content: center;
-  gap: 30px;
+  gap: 1.875rem;
 }
 .about__member-name {
   font-size: var(--fs-2xl);
   font-weight: 500;
-  padding-block: 32px 8px;
+  padding-block: 2rem 0.5rem;
 }
 .about__social-list {
   display: flex;
-  column-gap: 16px;
-  padding-top: 16px;
+  column-gap: 1rem;
+  padding-top: 1rem;
 }
 </style>
 

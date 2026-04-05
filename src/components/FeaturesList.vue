@@ -26,15 +26,15 @@
   text-align: center;
 }
 .feature-icon {
-  padding: 9px;
+  padding: 0.625rem;
   background-color: black;
   border-radius: 50%;
-  outline: 11px solid rgba(47, 46, 48, 0.3);
+  outline: 12px solid rgba(47, 46, 48, 0.3);
 }
 .feature-title {
   font-weight: 600;
   font-size: var(--fs-lg);
-  padding-block: 24px 8px;
+  padding-block: 1.5rem 0.5rem;
 }
 .feature-description {
   font-size: var(--fs-sm);

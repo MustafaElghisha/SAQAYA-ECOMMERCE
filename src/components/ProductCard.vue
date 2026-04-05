@@ -42,25 +42,25 @@
 <style lang="css" scoped>
 .product-card__product {
   background-color: #fafafa;
-  padding: 40px;
+  padding: 2.5rem;
   position: relative;
-  margin-bottom: 16px;
-  border-radius: 4px;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
 }
 .product-card__product-fav {
-  top: 12px;
-  right: 12px;
+  top: 0.75rem;
+  right: 0.75rem;
 }
 .product-card__product-view {
-  top: 54px;
-  right: 12px;
+  top: 3.375rem;
+  right: 0.75rem;
 }
 .product-card__product-fav,
 .product-card__product-view {
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   position: absolute;
-  padding: 5px;
+  padding: 0.375rem;
   background-color: white;
   border-radius: 50%;
 }
@@ -70,13 +70,13 @@
   font-weight: 500;
 }
 .product-card__pricing {
-  padding-block: 8px;
+  padding-block: 0.5rem;
   display: flex;
-  gap: 12px;
+  gap: 0.75rem;
 }
 .product-card__rating {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   align-items: center;
 }
 .product-card__review-count {

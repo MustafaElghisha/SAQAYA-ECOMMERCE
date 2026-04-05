@@ -73,15 +73,15 @@
 
 <style lang="css" scoped>
 .contact {
-  padding-block: 80px 140px;
-  padding-inline: 10px;
+  padding-block: 5rem 8.75rem;
+  padding-inline: 0.625rem;
   max-width: 1300px;
   margin-inline: auto;
 }
 .contact__container {
   display: grid;
   grid-template-columns: 4fr 1fr;
-  column-gap: 32px;
+  column-gap: 2rem;
 }
 .contact__hero-image {
   min-width: 710px;
@@ -92,61 +92,61 @@
 }
 .contact__details,
 .contact__info {
-  border-radius: 4px;
+  border-radius: 0.25rem;
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.05);
 }
 .contact__info {
-  padding: 40px 36px;
+  padding: 2.5rem 2.25rem;
 }
 .contact__card--call {
-  padding-bottom: 32px;
+  padding-bottom: 2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 .contact__card--mail {
-  padding-top: 32px;
+  padding-top: 2rem;
 }
 .contact__card-header {
   display: flex;
-  column-gap: 16px;
+  column-gap: 1rem;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 .contact__card-text,
 .contact__card-detail {
-  margin-top: 16px;
+  margin-top: 1rem;
 }
 .contact__form {
-  padding: 24px 32px 48px;
+  padding: 1.5rem 2rem 3rem;
   display: flex;
   flex-direction: column;
   flex: 1;
-  row-gap: 32px;
+  row-gap: 2rem;
 }
 .contact__inputs {
   display: flex;
-  column-gap: 16px;
+  column-gap: 1rem;
 }
 .contact__input {
   max-width: 235px;
 }
 .contact__textarea {
   flex: 1;
-  padding-block: 32px;
+  padding-block: 2rem;
 }
 .contact__input,
 .contact__textarea {
   outline: none;
   border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
   background-color: #f5f5f5;
 }
 .contact__button {
   border: none;
   color: #f5f5f5;
   background-color: var(--clr-primary-500);
-  padding: 16px 48px;
-  border-radius: 4px;
+  padding: 1rem 3rem;
+  border-radius: 0.25rem;
   align-self: end;
 }
 </style>

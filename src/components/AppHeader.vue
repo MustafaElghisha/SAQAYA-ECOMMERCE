@@ -56,9 +56,9 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .header {
-  max-width: 1200px;
+  max-width: 75rem;
   margin-inline: auto;
-  padding: 16px 10px;
+  padding: 1rem 0.625rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -67,7 +67,7 @@
 .header__nav-list {
   display: flex;
   align-items: center;
-  column-gap: 48px;
+  column-gap: 3rem;
 }
 
 .header__nav-link {
@@ -77,26 +77,24 @@
 .header__search {
   display: flex;
   align-items: center;
-  column-gap: 32px;
+  column-gap: 2rem;
 }
 
 .header__search-wrapper {
-  position: relative;
   display: flex;
   align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #f5f5f5;
+  font-size: var(--fs-xs);
 }
 
 .header__search-input {
   outline: none;
   border: none;
-  min-width: 244px;
-  border-radius: 4px;
-  padding: 8px 16px;
-  background-color: #f5f5f5;
-  font-size: var(--fs-xs);
+  background: transparent;
 }
 .header__search-icon {
-  position: absolute;
-  right: 12px;
+  cursor: pointer;
 }
 </style>

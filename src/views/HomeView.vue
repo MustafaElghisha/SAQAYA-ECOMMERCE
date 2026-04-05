@@ -68,15 +68,15 @@
 
 <style lang="css" scoped>
 .home {
-  max-width: 1200px;
-  padding-inline: 10px;
-  margin: 70px auto;
+  max-width: 75rem;
+  padding-inline: 0.625rem;
+  margin: 4.375rem auto;
 }
 .home__hero-image {
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
 }
 .section {
-  padding-block: 80px;
+  padding-block: 5rem;
   &:not(:last-of-type) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
@@ -84,9 +84,9 @@
 .products__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 270px);
-  gap: 30px;
+  gap: 1.875rem;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 3.75rem;
 }
 
 .products__view-all {
@@ -95,7 +95,7 @@
 }
 
 .section__header {
-  padding-block: 10px;
+  padding-block: 0.625rem;
 }
 .section__tag {
   font-weight: 600;
@@ -103,19 +103,19 @@
 }
 .section__tag::before {
   content: "";
-  border: 10px solid var(--clr-primary-500);
-  border-radius: 4px;
-  margin-inline-end: 16px;
+  border: 0.625rem solid var(--clr-primary-500);
+  border-radius: 0.25rem;
+  margin-inline-end: 1rem;
 }
 .section__title {
   font-weight: 600;
   font-size: var(--fs-3xl);
-  padding-block: 20px 60px;
+  padding-block: 1.25rem 3.75rem;
 }
 .categories__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 170px);
-  gap: 30px;
+  gap: 1.875rem;
   justify-content: center;
 }
 .category__item {
@@ -123,11 +123,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 16px;
+  row-gap: 1rem;
   text-align: center;
   cursor: pointer;
-  padding: 24px 36px;
-  border-radius: 4px;
+  padding: 1.5rem 2.25rem;
+  border-radius: 0.25rem;
   border: 1px solid rgba(0, 0, 0, 0.3);
   transition: all 200ms ease-in-out;
 

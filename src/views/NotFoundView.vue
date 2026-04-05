@@ -18,7 +18,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-block: 140px;
+  margin-block: 8.75rem;
 }
 .not-found__title {
   color: var(--neutral-950);
@@ -26,6 +26,6 @@
   font-size: var(--fs-5xl);
 }
 .not-found__message {
-  margin-block: 40px 70px;
+  margin-block: 2.5rem 4.375rem;
 }
 </style>
