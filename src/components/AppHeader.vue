@@ -34,9 +34,10 @@
             class="header__search-icon"
           />
         </div>
-        <div class="header__cart">
+        <div class="header__cart" @click="toggleShowCart">
           <img
             src="../assets/icons/Cart.svg"
+            class="header__cart-icon"
             alt="Cart"
             width="32"
             height="32"
@@ -44,8 +45,44 @@
         </div>
       </div>
     </header>
+    <transition name="cart">
+      <side-cart v-if="showCart" @close="toggleShowCart" />
+    </transition>
   </div>
 </template>
+
+<script>
+import SideCart from "./SideCart.vue";
+export default {
+  components: {
+    SideCart,
+  },
+  data() {
+    return {
+      showCart: false,
+      navLinks: [
+        {
+          name: "Home",
+          link: "/",
+        },
+        {
+          name: "Contact",
+          link: "/contact",
+        },
+        {
+          name: "About",
+          link: "/about-us",
+        },
+      ],
+    };
+  },
+  methods: {
+    toggleShowCart() {
+      this.showCart = !this.showCart;
+    },
+  },
+};
+</script>
 
 <style lang="css" scoped>
 .wrapper {
@@ -90,30 +127,27 @@
   border: none;
   background: transparent;
 }
-.header__search-icon {
+.header__search-icon,
+.header__cart-icon {
   cursor: pointer;
 }
-</style>
 
-<script>
-export default {
-  data() {
-    return {
-      navLinks: [
-        {
-          name: "Home",
-          link: "/",
-        },
-        {
-          name: "Contact",
-          link: "/contact",
-        },
-        {
-          name: "About",
-          link: "/about-us",
-        },
-      ],
-    };
-  },
-};
-</script>
+.cart-enter {
+  transform: translateX(100%);
+}
+.cart-enter-active {
+  transition: transform 0.3s ease;
+}
+.cart-enter-to {
+  transform: translateX(0);
+}
+.cart-leave {
+  transform: translateX(0);
+}
+.cart-leave-active {
+  transition: transform 0.3s ease;
+}
+.cart-leave-to {
+  transform: translateX(100%);
+}
+</style>
