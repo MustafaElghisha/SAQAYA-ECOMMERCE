@@ -31,21 +31,7 @@
         <span class="section__tag">Categories</span>
       </div>
       <h2 class="section__title">Browse By Category</h2>
-
-      <ul class="categories__list">
-        <li
-          class="category__item"
-          v-for="(category, index) in categories"
-          :key="index"
-        >
-          <img
-            :src="category.icon"
-            :alt="category.alt"
-            class="category__icon"
-          />
-          <h3 class="category__item-title">{{ category.title }}</h3>
-        </li>
-      </ul>
+      <CategoriesList :categories="categories" />
     </section>
 
     <section class="section">
@@ -73,6 +59,69 @@
     </section>
   </div>
 </template>
+
+<script>
+import hairDryerIcon from "@/assets/icons/Hair Dryer.svg";
+import bathTub from "@/assets/icons/Bath tub.svg";
+import fragranceIcon from "@/assets/icons/Perfume icon.svg";
+import cameraIcon from "@/assets/icons/Category-Camera.svg";
+import headphone from "@/assets/icons/Category-Headphone.svg";
+import candleIcon from "@/assets/icons/Candle.svg";
+
+import CategoriesList from "@/components/Business/CategoriesList.vue";
+import FeaturesList from "@/components/Business/FeaturesList.vue";
+
+import ProductCard from "@/components/Business/ProductCard.vue";
+
+import { mapState } from "vuex";
+
+export default {
+  components: {
+    FeaturesList,
+    ProductCard,
+    CategoriesList,
+  },
+  data() {
+    return {
+      categories: [
+        {
+          icon: hairDryerIcon,
+          alt: "Beauty category",
+          title: "Beauty",
+        },
+        {
+          icon: bathTub,
+          alt: "Furniture category",
+          title: "Furniture",
+        },
+        {
+          icon: fragranceIcon,
+          alt: "Fragrance category",
+          title: "Fragrance",
+        },
+        {
+          icon: cameraIcon,
+          alt: "Camera category",
+          title: "Camera",
+        },
+        {
+          icon: headphone,
+          alt: "Mobile Accessories category",
+          title: "Mobile Accessories",
+        },
+        {
+          icon: candleIcon,
+          alt: "Home Accessories category",
+          title: "Home Accessories",
+        },
+      ],
+    };
+  },
+  computed: {
+    ...mapState("products", ["products"]),
+  },
+};
+</script>
 
 <style lang="css" scoped>
 .home {
@@ -120,100 +169,4 @@
   font-size: var(--fs-3xl);
   padding-block: 1.25rem 3.75rem;
 }
-.categories__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 170px);
-  gap: 1.875rem;
-  justify-content: center;
-}
-.category__item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 1rem;
-  text-align: center;
-  cursor: pointer;
-  padding: 1.5rem 2.25rem;
-  border-radius: 0.25rem;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  transition: all 200ms ease-in-out;
-
-  &:hover {
-    color: white;
-    background-color: var(--clr-primary-500);
-    border-color: transparent;
-
-    > img {
-      filter: invert(100%);
-    }
-  }
-}
-.category__icon {
-  transition: all 200ms ease-in-out;
-}
-.category__item-title {
-  font-size: var(--fs-md);
-  font-weight: 400;
-}
 </style>
-
-<script>
-import hairDryerIcon from "@/assets/icons/Hair Dryer.svg";
-import bathTub from "@/assets/icons/Bath tub.svg";
-import fragranceIcon from "@/assets/icons/Perfume icon.svg";
-import cameraIcon from "@/assets/icons/Category-Camera.svg";
-import headphone from "@/assets/icons/Category-Headphone.svg";
-import candleIcon from "@/assets/icons/Candle.svg";
-
-import FeaturesList from "@/components/Business/FeaturesList.vue";
-import ProductCard from "@/components/Business/ProductCard.vue";
-import { mapState } from "vuex";
-import products from "@/store/modules/products";
-
-export default {
-  components: {
-    FeaturesList,
-    ProductCard,
-  },
-  data() {
-    return {
-      categories: [
-        {
-          icon: hairDryerIcon,
-          alt: "Beauty category",
-          title: "Beauty",
-        },
-        {
-          icon: bathTub,
-          alt: "Furniture category",
-          title: "Furniture",
-        },
-        {
-          icon: fragranceIcon,
-          alt: "Fragrance category",
-          title: "Fragrance",
-        },
-        {
-          icon: cameraIcon,
-          alt: "Camera category",
-          title: "Camera",
-        },
-        {
-          icon: headphone,
-          alt: "Mobile Accessories category",
-          title: "Mobile Accessories",
-        },
-        {
-          icon: candleIcon,
-          alt: "Home Accessories category",
-          title: "Home Accessories",
-        },
-      ],
-    };
-  },
-  computed: {
-    ...mapState("products", ["products"]),
-  },
-};
-</script>
