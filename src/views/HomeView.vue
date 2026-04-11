@@ -13,7 +13,11 @@
       <h2 class="section__title">Flash Sales</h2>
 
       <ul class="products__list">
-        <ProductCard v-for="n in 4" :key="n" />
+        <ProductCard
+          v-for="product in products.slice(10, 14)"
+          :key="product.id"
+          :product="product"
+        />
       </ul>
       <div class="products__view-all">
         <router-link to="/products" class="btn products__view-all-btn">
@@ -51,7 +55,11 @@
       <h2 class="section__title">Explore Our products</h2>
 
       <ul class="products__list">
-        <ProductCard v-for="n in 8" :key="n" />
+        <ProductCard
+          v-for="product in products.slice(0, 8)"
+          :key="product.id"
+          :product="product"
+        />
       </ul>
       <div class="products__view-all">
         <router-link to="/products" class="btn products__view-all-btn">
@@ -160,6 +168,8 @@ import candleIcon from "@/assets/icons/Candle.svg";
 
 import FeaturesList from "@/components/Business/FeaturesList.vue";
 import ProductCard from "@/components/Business/ProductCard.vue";
+import { mapState } from "vuex";
+import products from "@/store/modules/products";
 
 export default {
   components: {
@@ -201,6 +211,9 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    ...mapState("products", ["products"]),
   },
 };
 </script>

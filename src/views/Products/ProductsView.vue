@@ -2,7 +2,11 @@
   <div class="explore">
     <h1 class="explore__title">Explore Our Products</h1>
     <ul class="explore__list">
-      <ProductCard v-for="n in 12" :key="n" />
+      <ProductCard
+        v-for="product in products.slice(0, 12)"
+        :key="product.id"
+        :product="product"
+      />
     </ul>
     <span class="btn">Load more ...</span>
   </div>
@@ -34,7 +38,11 @@
 
 <script>
 import ProductCard from "@/components/Business/ProductCard.vue";
+import { mapState } from "vuex";
 export default {
+  computed: {
+    ...mapState("products", ["products"]),
+  },
   components: {
     ProductCard,
   },
