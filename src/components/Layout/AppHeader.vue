@@ -3,7 +3,7 @@
     <header class="header">
       <div class="header__logo">
         <router-link to="/">
-          <img src="../assets/icons/Logo.svg" alt="Website Logo" />
+          <img src="../../assets/icons/Logo.svg" alt="Website Logo" />
         </router-link>
       </div>
 
@@ -29,14 +29,14 @@
             class="header__search-input"
           />
           <img
-            src="../assets/icons/Search.svg"
+            src="../../assets/icons/Search.svg"
             alt="Search"
             class="header__search-icon"
           />
         </div>
         <div class="header__cart" @click="toggleShowCart">
           <img
-            src="../assets/icons/Cart.svg"
+            src="../../assets/icons/Cart.svg"
             class="header__cart-icon"
             alt="Cart"
             width="32"
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import SideCart from "./SideCart.vue";
+import SideCart from "../Business/SideCart.vue";
 export default {
   components: {
     SideCart,

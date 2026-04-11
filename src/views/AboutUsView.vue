@@ -170,7 +170,7 @@ import saleIcon from "@/assets/icons/Sale.svg";
 import shoppingBagIcon from "@/assets/icons/Shopping bag.svg";
 import moneyBagIcon from "@/assets/icons/Moneybag.svg";
 
-import FeaturesList from "@/components/FeaturesList.vue";
+import FeaturesList from "@/components/Business/FeaturesList.vue";
 
 export default {
   components: {

@@ -1,11 +1,11 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 
-import MainLayout from "@/layouts/MainLayout.vue";
+import MainLayout from "@/components/Layout/MainLayout.vue";
 import HomeView from "@/views/HomeView.vue";
 import AboutUsView from "@/views/AboutUsView.vue";
 import ContactView from "@/views/ContactView.vue";
-import ProductsView from "@/views/ProductsView.vue";
+import ProductsView from "@/views/Products/ProductsView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
 
 Vue.use(VueRouter);

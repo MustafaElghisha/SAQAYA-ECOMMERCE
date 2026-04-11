@@ -3,7 +3,7 @@
     <div class="cart__header">
       <h2 class="cart__title">Shopping Cart</h2>
       <img
-        src="../assets/icons/icon-cancel.svg"
+        src="../../assets/icons/icon-cancel.svg"
         alt="close button"
         class="cart__close-icon"
         @click="closeCart"
@@ -12,7 +12,7 @@
     <ul class="cart__item-list">
       <li class="cart__item" v-for="item in cartItems" :key="item.product.id">
         <img
-          src="../assets/icons/icon-cancel.svg"
+          src="../../assets/icons/icon-cancel.svg"
           alt="close button"
           class="cart__item-remove-icon"
           @click="removeFromCart(item.product.id)"

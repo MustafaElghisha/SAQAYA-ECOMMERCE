@@ -2,19 +2,19 @@
   <li class="product-card__item">
     <div class="product-card__product">
       <img
-        src="../assets/images/HAVIT HV-G92 Gamepad.png"
+        src="../../assets/images/HAVIT HV-G92 Gamepad.png"
         alt="HAVIT HV-G92 Gamepad"
         class="product-card__product-image"
       />
       <img
-        src="../assets/icons/heart.svg"
+        src="../../assets/icons/heart.svg"
         alt="heart"
         width="24"
         height="24"
         class="product-card__product-fav"
       />
       <img
-        src="../assets/icons/Quick View.svg"
+        src="../../assets/icons/Quick View.svg"
         alt="view"
         width="24"
         height="24"
@@ -29,7 +29,7 @@
     <div class="product-card__rating">
       <span class="product-card__stars">
         <img
-          src="../assets/icons/Five star.svg"
+          src="../../assets/icons/Five star.svg"
           alt="Rating stars"
           class="product-card__star-icon"
         />

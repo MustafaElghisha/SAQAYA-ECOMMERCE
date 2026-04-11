@@ -4,7 +4,7 @@
       <div class="footer__main">
         <div class="footer__section">
           <div class="footer__logo">
-            <img src="../assets/icons/Logo-white.svg" alt="Website Logo" />
+            <img src="../../assets/icons/Logo-white.svg" alt="Website Logo" />
           </div>
           <h2 class="footer__heading">Subscribe</h2>
           <p class="footer__subtext">Get 10% off your first order</p>
@@ -15,7 +15,7 @@
               placeholder="Enter your email"
             />
             <img
-              src="../assets/icons/icon-send.svg"
+              src="../../assets/icons/icon-send.svg"
               alt="Send Icon"
               class="footer__send-icon"
               height="24"
@@ -75,7 +75,7 @@
 
           <div class="footer__app-badges">
             <img
-              src="../assets/icons/Qr Code.svg"
+              src="../../assets/icons/Qr Code.svg"
               alt="QR Code"
               class="footer__qr-code"
               width="80"
@@ -83,14 +83,14 @@
             />
             <div class="footer__store-badges">
               <img
-                src="../assets/icons/google-play.svg"
+                src="../../assets/icons/google-play.svg"
                 alt="Get it on Google Play"
                 class="footer__store-badge"
                 width="110"
                 height="40"
               />
               <img
-                src="../assets/icons/download-appstore.svg"
+                src="../../assets/icons/download-appstore.svg"
                 alt="Download on the App Store"
                 class="footer__store-badge"
                 width="110"
@@ -119,7 +119,7 @@
 
       <div class="footer__copyright">
         <img
-          src="../assets/icons/icon-copyright.svg"
+          src="../../assets/icons/icon-copyright.svg"
           alt="Copyright icon"
           class="footer__copyright-icon"
         />

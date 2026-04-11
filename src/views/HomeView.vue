@@ -158,8 +158,8 @@ import cameraIcon from "@/assets/icons/Category-Camera.svg";
 import headphone from "@/assets/icons/Category-Headphone.svg";
 import candleIcon from "@/assets/icons/Candle.svg";
 
-import FeaturesList from "@/components/FeaturesList.vue";
-import ProductCard from "@/components/ProductCard.vue";
+import FeaturesList from "@/components/Business/FeaturesList.vue";
+import ProductCard from "@/components/Business/ProductCard.vue";
 
 export default {
   components: {
