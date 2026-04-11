@@ -1,9 +1,9 @@
 <template>
-  <li class="product-card__item">
+  <li class="product-card__item" @click="addToCart(product)">
     <div class="product-card__product">
       <img
-        src="../../assets/images/HAVIT HV-G92 Gamepad.png"
-        alt="HAVIT HV-G92 Gamepad"
+        :src="product.thumbnail"
+        :alt="product.title"
         class="product-card__product-image"
       />
       <img
@@ -13,6 +13,7 @@
         height="24"
         class="product-card__product-fav"
       />
+      <span class="product-card__add-to-cart">Add To Cart</span>
       <img
         src="../../assets/icons/Quick View.svg"
         alt="view"
@@ -21,10 +22,17 @@
         class="product-card__product-view"
       />
     </div>
-    <h3 class="product-card__product-title">HAVIT HV-G92 Gamepad</h3>
+    <h3 class="product-card__product-title">{{ product.title }}</h3>
     <div class="product-card__pricing">
-      <span class="product-card__current-price">$120</span>
-      <span class="product-card__original-price">$160</span>
+      <span class="product-card__current-price">${{ product.price }}</span>
+      <span class="product-card__original-price">
+        ${{
+          (
+            product.price +
+            (product.price * product.discountPercentage) / 100
+          ).toFixed(2)
+        }}
+      </span>
     </div>
     <div class="product-card__rating">
       <span class="product-card__stars">
@@ -39,11 +47,24 @@
   </li>
 </template>
 
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  props: ["product"],
+
+  methods: {
+    ...mapActions("products", ["addToCart"]),
+  },
+};
+</script>
+
 <style lang="css" scoped>
 .product-card__product {
   background-color: #fafafa;
   padding: 2.5rem;
   position: relative;
+  overflow: hidden;
   margin-bottom: 1rem;
   border-radius: 0.25rem;
 }
@@ -64,6 +85,24 @@
   background-color: white;
   border-radius: 50%;
 }
+.product-card__add-to-cart {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  background: black;
+  color: var(--clr-neutral-0);
+  font-weight: 500;
+  padding-block: 0.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.product-card__product:hover .product-card__add-to-cart {
+  transform: translateY(0);
+}
+
 .product-card__product-title,
 .product-card__original-price,
 .product-card__current-price {
