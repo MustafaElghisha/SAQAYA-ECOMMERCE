@@ -28,32 +28,11 @@
     </section>
 
     <section class="section about__team">
-      <div
-        class="about__member"
+      <MemberCard
         v-for="(member, index) in members"
         :key="index"
-      >
-        <img
-          class="about__member-image"
-          :src="member.image"
-          :alt="member.name"
-        />
-        <h2 class="about__member-name">{{ member.name }}</h2>
-        <p class="about__member-role">{{ member.role }}</p>
-        <ul class="about__social-list">
-          <li
-            class="about__social-item"
-            v-for="(social, index) in socialLinks"
-            :key="index"
-          >
-            <img
-              class="about__social-icon"
-              :src="social.icon"
-              :alt="social.alt"
-            />
-          </li>
-        </ul>
-      </div>
+        :member="member"
+      />
     </section>
 
     <section class="section">
@@ -99,16 +78,6 @@
   justify-content: center;
   gap: 1.875rem;
 }
-.about__member-name {
-  font-size: var(--fs-2xl);
-  font-weight: 500;
-  padding-block: 2rem 0.5rem;
-}
-.about__social-list {
-  display: flex;
-  column-gap: 1rem;
-  padding-top: 1rem;
-}
 </style>
 
 <script>
@@ -116,22 +85,20 @@ import TomCruise from "@/assets/images/Tom-Cruise.png";
 import EmmaWatson from "@/assets/images/Emma-Watson.png";
 import WillSmith from "@/assets/images/Will-Smith.png";
 
-import twitterIcon from "@/assets/icons/Icon-Twitter-Black.svg";
-import instagramIcon from "@/assets/icons/Icon-Instagram-Black.svg";
-import linkedinIcon from "@/assets/icons/Icon-Linkedin-Black.svg";
-
 import shopIcon from "@/assets/icons/shop.svg";
 import saleIcon from "@/assets/icons/Sale.svg";
 import shoppingBagIcon from "@/assets/icons/Shopping bag.svg";
 import moneyBagIcon from "@/assets/icons/Moneybag.svg";
 
-import FeaturesList from "@/components/Business/FeaturesList.vue";
 import StatCard from "@/components/Business/StatCard.vue";
+import MemberCard from "@/components/Business/MemberCard.vue";
+import FeaturesList from "@/components/Business/FeaturesList.vue";
 
 export default {
   components: {
-    FeaturesList,
     StatCard,
+    MemberCard,
+    FeaturesList,
   },
   data() {
     return {
@@ -150,20 +117,6 @@ export default {
           image: WillSmith,
           name: "Will Smith",
           role: "Product Designer",
-        },
-      ],
-      socialLinks: [
-        {
-          icon: twitterIcon,
-          alt: "twitter icon",
-        },
-        {
-          icon: instagramIcon,
-          alt: "instagram icon",
-        },
-        {
-          icon: linkedinIcon,
-          alt: "linkedin icon",
         },
       ],
       stats: [
