@@ -1,11 +1,11 @@
 <template>
-  <div class="about__stat-card">
+  <li class="about__stat-card">
     <div class="about__stat-icon-wrapper">
       <img class="about__stat-icon" :src="stat.icon" :alt="stat.alt" />
     </div>
     <span class="about__stat-number">{{ stat.number }}</span>
     <p class="about__stat-label">{{ stat.label }}</p>
-  </div>
+  </li>
 </template>
 
 <script>
