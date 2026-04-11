@@ -42,6 +42,7 @@
             width="32"
             height="32"
           />
+          <span class="header__cart-count">{{ cartCount }}</span>
         </div>
       </div>
     </header>
@@ -52,6 +53,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import SideCart from "../Business/SideCart.vue";
 export default {
   components: {
@@ -80,6 +82,9 @@ export default {
     toggleShowCart() {
       this.showCart = !this.showCart;
     },
+  },
+  computed: {
+    ...mapGetters("products", ["cartCount"]),
   },
 };
 </script>
@@ -130,6 +135,24 @@ export default {
 .header__search-icon,
 .header__cart-icon {
   cursor: pointer;
+}
+
+.header__cart {
+  position: relative;
+}
+.header__cart-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xs);
+  color: var(--clr-neutral-100);
+  width: 1.1rem;
+  height: 1.1rem;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--clr-primary-500);
+  border-radius: 100%;
 }
 
 .cart-enter {
