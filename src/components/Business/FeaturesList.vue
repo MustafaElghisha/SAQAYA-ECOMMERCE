@@ -1,50 +1,19 @@
 <template>
   <ul class="features-list">
-    <li v-for="feature in features" :key="feature.title" class="feature">
-      <div class="feature-icon">
-        <img :src="feature.icon" :alt="feature.alt" />
-      </div>
-      <h2 class="feature-title">{{ feature.title }}</h2>
-      <p class="feature-description">
-        {{ feature.description }}
-      </p>
-    </li>
+    <FeatureCard
+      v-for="(feature, index) in features"
+      :key="index"
+      :feature="feature"
+    />
   </ul>
 </template>
-
-<style lang="css" scoped>
-.features-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 266px);
-  gap: 88px;
-  justify-content: center;
-}
-.feature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.feature-icon {
-  padding: 0.625rem;
-  background-color: black;
-  border-radius: 50%;
-  outline: 12px solid rgba(47, 46, 48, 0.3);
-}
-.feature-title {
-  font-weight: 600;
-  font-size: var(--fs-lg);
-  padding-block: 1.5rem 0.5rem;
-}
-.feature-description {
-  font-size: var(--fs-sm);
-}
-</style>
 
 <script>
 import deliveryIcon from "@/assets/icons/icon-delivery.svg";
 import customerServiceIcon from "@/assets/icons/Icon-Customer service.svg";
 import secureIcon from "@/assets/icons/Icon-secure.svg";
+
+import FeatureCard from "@/components/Business/FeatureCard.vue";
 
 export default {
   name: "FeaturesList",
@@ -72,5 +41,17 @@ export default {
       ],
     };
   },
+  components: {
+    FeatureCard,
+  },
 };
 </script>
+
+<style lang="css" scoped>
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 266px);
+  gap: 88px;
+  justify-content: center;
+}
+</style>
