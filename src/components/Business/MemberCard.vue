@@ -1,5 +1,5 @@
 <template>
-  <div class="about__member">
+  <li class="about__member">
     <img class="about__member-image" :src="member.image" :alt="member.name" />
     <h2 class="about__member-name">{{ member.name }}</h2>
     <p class="about__member-role">{{ member.role }}</p>
@@ -12,7 +12,7 @@
         <img class="about__social-icon" :src="social.icon" :alt="social.alt" />
       </li>
     </ul>
-  </div>
+  </li>
 </template>
 
 <script>

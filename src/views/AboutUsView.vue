@@ -27,12 +27,8 @@
       <StatsList :stats="stats" />
     </section>
 
-    <section class="section about__team">
-      <MemberCard
-        v-for="(member, index) in members"
-        :key="index"
-        :member="member"
-      />
+    <section class="section">
+      <MembersList :members="members" />
     </section>
 
     <section class="section">
@@ -64,13 +60,6 @@
 .about__description {
   margin-bottom: 1.5rem;
 }
-
-.about__team {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 370px);
-  justify-content: center;
-  gap: 1.875rem;
-}
 </style>
 
 <script>
@@ -83,14 +72,14 @@ import saleIcon from "@/assets/icons/Sale.svg";
 import shoppingBagIcon from "@/assets/icons/Shopping bag.svg";
 import moneyBagIcon from "@/assets/icons/Moneybag.svg";
 
-import MemberCard from "@/components/Business/MemberCard.vue";
 import FeaturesList from "@/components/Business/FeaturesList.vue";
 import StatsList from "@/components/Business/StatsList.vue";
+import MembersList from "@/components/Business/MembersList.vue";
 
 export default {
   components: {
     StatsList,
-    MemberCard,
+    MembersList,
     FeaturesList,
   },
   data() {
