@@ -1,5 +1,5 @@
 <template>
-  <li class="product-card__item" @click="addToCart(product)">
+  <li class="product-card__item">
     <div class="product-card__product">
       <img
         :src="product.thumbnail"
@@ -13,7 +13,9 @@
         height="24"
         class="product-card__product-fav"
       />
-      <span class="product-card__add-to-cart">Add To Cart</span>
+      <span class="product-card__add-to-cart" @click.stop="addToCart(product)">
+        Add To Cart
+      </span>
       <img
         src="../../assets/icons/Quick View.svg"
         alt="view"
