@@ -10,38 +10,11 @@
       />
       <div class="contact__details">
         <div class="contact__info">
-          <div class="contact__card contact__card--call">
-            <div class="contact__card-header">
-              <img
-                class="contact__icon"
-                src="../assets/icons/icons-phone.svg"
-                alt="Phone Icon"
-                width="40"
-                height="40"
-              />
-              <span class="contact__card-title">Call Us</span>
-            </div>
-            <p class="contact__card-text">
-              We are available 24/7, 7 days a week.
-            </p>
-            <p class="contact__card-detail">Phone: +8801611112222</p>
-          </div>
-
-          <div class="contact__card contact__card--mail">
-            <div class="contact__card-header">
-              <img
-                class="contact__icon"
-                src="../assets/icons/icons-mail.svg"
-                alt="Mail Icon"
-                width="40"
-                height="40"
-              />
-              <span class="contact__card-title">Write To US</span>
-            </div>
-            <p class="contact__card-text">
-              Fill out our form and we will contact you within 24 hours.
-            </p>
-          </div>
+          <ContactCard
+            v-for="(contactMethod, index) in contactMethods"
+            :key="index"
+            :contactMethod="contactMethod"
+          />
         </div>
 
         <form class="contact__form">
@@ -71,6 +44,37 @@
   </div>
 </template>
 
+<script>
+import phoneIcon from "@/assets/icons/icons-phone.svg";
+import mailIcon from "@/assets/icons/icons-mail.svg";
+import ContactCard from "@/components/Business/ContactCard.vue";
+
+export default {
+  data() {
+    return {
+      contactMethods: [
+        {
+          icon: phoneIcon,
+          alt: "phone icon",
+          title: "Call Us",
+          text: "We are available 24/7, 7 days a week.",
+          detail: "Phone: +8801611112222",
+        },
+        {
+          icon: mailIcon,
+          alt: "mail iocn",
+          title: "Write To US",
+          text: "Fill out our form and we will contact you within 24 hours.",
+        },
+      ],
+    };
+  },
+  components: {
+    ContactCard,
+  },
+};
+</script>
+
 <style lang="css" scoped>
 .contact {
   padding-block: 5rem 8.75rem;
@@ -84,7 +88,7 @@
   column-gap: 2rem;
 }
 .contact__hero-image {
-  min-width: 710px;
+  width: 710px;
 }
 .contact__details {
   display: flex;
@@ -98,23 +102,7 @@
 .contact__info {
   padding: 2.5rem 2.25rem;
 }
-.contact__card--call {
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-}
-.contact__card--mail {
-  padding-top: 2rem;
-}
-.contact__card-header {
-  display: flex;
-  column-gap: 1rem;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-.contact__card-text,
-.contact__card-detail {
-  margin-top: 1rem;
-}
+
 .contact__form {
   padding: 1.5rem 2rem 3rem;
   display: flex;
