@@ -22,17 +22,17 @@ const routes: Array<RouteConfig> = [
       },
 
       {
-        path: "/about-us",
+        path: "about-us",
         name: "about-us",
         component: AboutUsView,
       },
       {
-        path: "/contact",
+        path: "contact",
         name: "contact",
         component: ContactView,
       },
       {
-        path: "/products",
+        path: "products",
         name: "products",
         component: ProductsView,
       },
@@ -48,6 +48,22 @@ const routes: Array<RouteConfig> = [
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
+
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  },
+
+  // scrollBehavior(to, from, savedPosition) {
+  //   if (savedPosition) {
+  //     return savedPosition;
+  //   }
+
+  //   return new Promise((resolve) => {
+  //     setTimeout(() => {
+  //       resolve({ x: 0, y: 0 });
+  //     }, 0);
+  //   });
+  // },
   routes,
 });
 
