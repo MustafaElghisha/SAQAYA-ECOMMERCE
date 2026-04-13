@@ -44,7 +44,7 @@
           class="product-card__star-icon"
         />
       </span>
-      <span class="product-card__review-count">(88)</span>
+      <span class="product-card__review-count">{{ product.rating }}</span>
     </div>
   </li>
 </template>

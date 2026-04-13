@@ -1,6 +1,20 @@
 <template>
   <div class="explore">
-    <h1 class="explore__title">Explore Our Products</h1>
+    <div class="explore__header">
+      <h1 class="explore__title">Explore Our Products</h1>
+      <select class="explore__sort" v-model="selectedSort">
+        <option class="explore__sort-option" value="HighestRating">
+          Highest rating
+        </option>
+        <option class="explore__sort-option" value="PriceLowHigh">
+          Price: Low to high
+        </option>
+        <option class="explore__sort-option" value="PriceHighLow">
+          Price: High to Low
+        </option>
+      </select>
+    </div>
+
     <ul class="explore__list">
       <ProductCard
         v-for="product in products"
@@ -8,7 +22,9 @@
         :product="product"
       />
     </ul>
-    <span class="btn" @click="loadMore" v-if="count < 194">Load more ...</span>
+    <span class="btn" @click="loadMore" v-if="this.products.length < 194">
+      Load more ...
+    </span>
   </div>
 </template>
 
@@ -17,19 +33,44 @@ import ProductCard from "@/components/Business/ProductCard.vue";
 import { mapState } from "vuex";
 
 export default {
+  data() {
+    return {
+      selectedSort: "HighestRating",
+      sortBy: "rating",
+      order: "desc",
+    };
+  },
+  watch: {
+    selectedSort(newVal) {
+      if (newVal == "HighestRating") {
+        this.sortBy = "rating";
+        this.order = "desc";
+      } else if (newVal == "PriceLowHigh") {
+        this.sortBy = "price";
+        this.order = "asc";
+      } else if (newVal == "PriceHighLow") {
+        this.sortBy = "price";
+        this.order = "desc";
+      }
+
+      this.$store.dispatch("products/fetchProducts", {
+        sortBy: this.sortBy,
+        order: this.order,
+        reset: true,
+      });
+    },
+  },
   methods: {
     loadMore() {
       this.$store.dispatch("products/fetchProducts", {
-        limit: 12,
-        skip: this.count,
+        skip: this.products.length,
+        sortBy: this.sortBy,
+        order: this.order,
       });
     },
   },
   computed: {
     ...mapState("products", ["products"]),
-    count() {
-      return this.products.length;
-    },
   },
   components: {
     ProductCard,
@@ -50,6 +91,27 @@ export default {
   font-weight: 600;
   font-size: var(--fs-3xl);
 }
+
+.explore__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.explore__sort {
+  color: #fafafa;
+  background-color: #423840;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  appearance: none;
+  background-image: url("../../assets/icons/DropDown.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  min-width: 12rem;
+}
+
 .btn {
   align-self: center;
 }

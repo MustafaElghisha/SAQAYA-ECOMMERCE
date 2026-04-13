@@ -30,6 +30,10 @@ const mutations = {
     state.products = [...state.products, ...products];
   },
 
+  RESET_PRODUCTS(state) {
+    state.products = [];
+  },
+
   ADD_TO_CART(state, product) {
     const existingItem = state.cart.find((item) => {
       return item.product.id === product.id;
@@ -58,11 +62,26 @@ const mutations = {
 };
 
 const actions = {
-  async fetchProducts({ commit }, { limit, skip }) {
+  async fetchProducts(
+    { commit },
+    {
+      limit = 12,
+      skip = 0,
+      sortBy = "rating",
+      order = "desc",
+      reset = false,
+    } = {}
+  ) {
+    if (reset) {
+      commit("RESET_PRODUCTS");
+    }
+
     const res = await axios.get("https://dummyjson.com/products", {
       params: {
         limit,
         skip,
+        sortBy,
+        order,
       },
     });
 
