@@ -5,7 +5,7 @@
 <script>
 export default {
   mounted() {
-    this.$store.dispatch("products/fetchProducts");
+    this.$store.dispatch("products/fetchProducts", { limit: 12, skip: 0 });
   },
 };
 </script>

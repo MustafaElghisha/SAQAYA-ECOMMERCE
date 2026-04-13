@@ -3,14 +3,39 @@
     <h1 class="explore__title">Explore Our Products</h1>
     <ul class="explore__list">
       <ProductCard
-        v-for="product in products.slice(0, 12)"
+        v-for="product in products"
         :key="product.id"
         :product="product"
       />
     </ul>
-    <span class="btn">Load more ...</span>
+    <span class="btn" @click="loadMore" v-if="count < 194">Load more ...</span>
   </div>
 </template>
+
+<script>
+import ProductCard from "@/components/Business/ProductCard.vue";
+import { mapState } from "vuex";
+
+export default {
+  methods: {
+    loadMore() {
+      this.$store.dispatch("products/fetchProducts", {
+        limit: 12,
+        skip: this.count,
+      });
+    },
+  },
+  computed: {
+    ...mapState("products", ["products"]),
+    count() {
+      return this.products.length;
+    },
+  },
+  components: {
+    ProductCard,
+  },
+};
+</script>
 
 <style lang="css" scoped>
 .explore {
@@ -35,16 +60,3 @@
   justify-content: center;
 }
 </style>
-
-<script>
-import ProductCard from "@/components/Business/ProductCard.vue";
-import { mapState } from "vuex";
-export default {
-  computed: {
-    ...mapState("products", ["products"]),
-  },
-  components: {
-    ProductCard,
-  },
-};
-</script>

@@ -26,8 +26,8 @@ const getters = {
 };
 
 const mutations = {
-  SET_PRODUCTS(state, products) {
-    state.products = products;
+  APPEND_PRODUCTS(state, products) {
+    state.products = [...state.products, ...products];
   },
 
   ADD_TO_CART(state, product) {
@@ -58,13 +58,15 @@ const mutations = {
 };
 
 const actions = {
-  async fetchProducts({ commit }) {
-    try {
-      const response = await axios.get("https://dummyjson.com/products");
-      commit("SET_PRODUCTS", response.data.products);
-    } catch (error) {
-      console.log(error);
-    }
+  async fetchProducts({ commit }, { limit, skip }) {
+    const res = await axios.get("https://dummyjson.com/products", {
+      params: {
+        limit,
+        skip,
+      },
+    });
+
+    commit("APPEND_PRODUCTS", res.data.products);
   },
 
   addToCart({ commit }, product) {

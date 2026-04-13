@@ -14,7 +14,7 @@
 
       <ul class="products__list">
         <ProductCard
-          v-for="product in products.slice(10, 14)"
+          v-for="product in products.slice(8, 12)"
           :key="product.id"
           :product="product"
         />
