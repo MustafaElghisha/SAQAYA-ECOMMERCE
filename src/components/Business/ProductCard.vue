@@ -1,51 +1,56 @@
 <template>
   <li class="product-card__item">
-    <div class="product-card__product">
-      <img
-        :src="product.thumbnail"
-        :alt="product.title"
-        class="product-card__product-image"
-      />
-      <img
-        src="../../assets/icons/heart.svg"
-        alt="heart"
-        width="24"
-        height="24"
-        class="product-card__product-fav"
-      />
-      <span class="product-card__add-to-cart" @click.stop="addToCart(product)">
-        Add To Cart
-      </span>
-      <img
-        src="../../assets/icons/Quick View.svg"
-        alt="view"
-        width="24"
-        height="24"
-        class="product-card__product-view"
-      />
-    </div>
-    <h3 class="product-card__product-title">{{ product.title }}</h3>
-    <div class="product-card__pricing">
-      <span class="product-card__current-price">${{ product.price }}</span>
-      <span class="product-card__original-price">
-        ${{
-          (
-            product.price +
-            (product.price * product.discountPercentage) / 100
-          ).toFixed(2)
-        }}
-      </span>
-    </div>
-    <div class="product-card__rating">
-      <span class="product-card__stars">
+    <router-link :to="`/productDetails/${product.id}`">
+      <div class="product-card__product">
         <img
-          src="../../assets/icons/Five star.svg"
-          alt="Rating stars"
-          class="product-card__star-icon"
+          :src="product.thumbnail"
+          :alt="product.title"
+          class="product-card__product-image"
         />
-      </span>
-      <span class="product-card__review-count">{{ product.rating }}</span>
-    </div>
+        <img
+          src="../../assets/icons/heart.svg"
+          alt="heart"
+          width="24"
+          height="24"
+          class="product-card__product-fav"
+        />
+        <span
+          class="product-card__add-to-cart"
+          @click.stop.prevent="addToCart(product)"
+        >
+          Add To Cart
+        </span>
+        <img
+          src="../../assets/icons/Quick View.svg"
+          alt="view"
+          width="24"
+          height="24"
+          class="product-card__product-view"
+        />
+      </div>
+      <h3 class="product-card__product-title">{{ product.title }}</h3>
+      <div class="product-card__pricing">
+        <span class="product-card__current-price">${{ product.price }}</span>
+        <span class="product-card__original-price">
+          ${{
+            (
+              product.price +
+              (product.price * product.discountPercentage) / 100
+            ).toFixed(2)
+          }}
+        </span>
+      </div>
+      <div class="product-card__rating">
+        <span class="product-card__stars">
+          <img
+            src="../../assets/icons/Five star.svg"
+            alt="Rating stars"
+            class="product-card__star-icon"
+          />
+        </span>
+        <span class="product-card__review-count">{{ product.rating }}</span>
+      </div>
+    </router-link>
   </li>
 </template>
 
@@ -63,7 +68,7 @@ export default {
 
 <style lang="css" scoped>
 .product-card__product {
-  background-color: #fafafa;
+  background-color: var(--clr-neutral-100);
   padding: 2.5rem;
   position: relative;
   overflow: hidden;
@@ -84,7 +89,7 @@ export default {
   height: 2.25rem;
   position: absolute;
   padding: 0.375rem;
-  background-color: white;
+  background-color: var(--clr-neutral-0);
   border-radius: 50%;
 }
 .product-card__add-to-cart {
@@ -94,7 +99,7 @@ export default {
   width: 100%;
   text-align: center;
   cursor: pointer;
-  background: black;
+  background: var(--clr-neutral-950);
   color: var(--clr-neutral-0);
   font-weight: 500;
   padding-block: 0.5rem;
@@ -105,6 +110,9 @@ export default {
   transform: translateY(0);
 }
 
+.product-card__product-title {
+  color: var(--clr-neutral-950);
+}
 .product-card__product-title,
 .product-card__original-price,
 .product-card__current-price {
@@ -123,13 +131,13 @@ export default {
 .product-card__review-count {
   font-weight: 600;
   font-size: var(--fs-sm);
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--clr-neutral-950-a50);
 }
 .product-card__current-price {
   color: var(--clr-primary-500);
 }
 .product-card__original-price {
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--clr-neutral-950-a50);
   text-decoration-line: line-through;
 }
 </style>
