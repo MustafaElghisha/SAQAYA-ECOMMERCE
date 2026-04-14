@@ -12,15 +12,12 @@
       </div>
       <h2 class="section__title">Flash Sales</h2>
 
-      <ul class="products__list">
-        <ProductCard
-          v-for="product in products.slice(8, 12)"
-          :key="product.id"
-          :product="product"
-        />
-      </ul>
+      <ProductsList :products="products.slice(8, 12)" />
       <div class="products__view-all">
-        <router-link to="/products" class="btn products__view-all-btn">
+        <router-link
+          :to="{ name: 'products' }"
+          class="btn products__view-all-btn"
+        >
           View All products
         </router-link>
       </div>
@@ -40,15 +37,12 @@
       </div>
       <h2 class="section__title">Explore Our products</h2>
 
-      <ul class="products__list">
-        <ProductCard
-          v-for="product in products.slice(0, 8)"
-          :key="product.id"
-          :product="product"
-        />
-      </ul>
+      <ProductsList :products="products.slice(0, 8)" />
       <div class="products__view-all">
-        <router-link to="/products" class="btn products__view-all-btn">
+        <router-link
+          :to="{ name: `products` }"
+          class="btn products__view-all-btn"
+        >
           View All products
         </router-link>
       </div>
@@ -70,15 +64,14 @@ import candleIcon from "@/assets/icons/Candle.svg";
 
 import CategoriesList from "@/components/Business/CategoriesList.vue";
 import FeaturesList from "@/components/Business/FeaturesList.vue";
-
-import ProductCard from "@/components/Business/ProductCard.vue";
+import ProductsList from "@/components/Business/ProductsList.vue";
 
 import { mapState } from "vuex";
 
 export default {
   components: {
     FeaturesList,
-    ProductCard,
+    ProductsList,
     CategoriesList,
   },
   data() {
@@ -137,13 +130,6 @@ export default {
   &:not(:last-of-type) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
-}
-.products__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 270px);
-  gap: 1.875rem;
-  justify-content: center;
-  margin-bottom: 3.75rem;
 }
 
 .products__view-all {

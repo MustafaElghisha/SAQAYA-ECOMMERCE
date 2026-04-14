@@ -14,14 +14,7 @@
         </option>
       </select>
     </div>
-
-    <ul class="explore__list">
-      <ProductCard
-        v-for="product in products"
-        :key="product.id"
-        :product="product"
-      />
-    </ul>
+    <ProductsList :products="products" />
     <span class="btn" @click="loadMore" v-if="this.products.length < 194">
       Load more ...
     </span>
@@ -29,7 +22,7 @@
 </template>
 
 <script>
-import ProductCard from "@/components/Business/ProductCard.vue";
+import ProductsList from "@/components/Business/ProductsList.vue";
 import { mapState } from "vuex";
 
 export default {
@@ -73,7 +66,7 @@ export default {
     ...mapState("products", ["products"]),
   },
   components: {
-    ProductCard,
+    ProductsList,
   },
 };
 </script>
@@ -114,11 +107,5 @@ export default {
 
 .btn {
   align-self: center;
-}
-.explore__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 270px);
-  gap: 1.875rem;
-  justify-content: center;
 }
 </style>
