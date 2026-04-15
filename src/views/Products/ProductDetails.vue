@@ -127,12 +127,11 @@ export default {
       const res = await axios.get(
         `https://dummyjson.com/products/${to.params.id}`
       );
-
       next((vm) => {
         vm.product = res.data;
       });
     } catch (error) {
-      next();
+      next({ name: "not-found" });
     }
   },
 
@@ -145,7 +144,7 @@ export default {
       this.product = res.data;
       next();
     } catch (error) {
-      next();
+      next({ name: "not-found" });
     }
   },
 };
