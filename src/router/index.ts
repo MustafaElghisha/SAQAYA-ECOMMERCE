@@ -7,6 +7,7 @@ import AboutUsView from "@/views/AboutUsView.vue";
 import ContactView from "@/views/ContactView.vue";
 import ProductsView from "@/views/Products/ProductsView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
+import ProductDetails from "@/views/Products/ProductDetails.vue";
 
 Vue.use(VueRouter);
 
@@ -37,6 +38,10 @@ const routes: Array<RouteConfig> = [
         component: ProductsView,
       },
       {
+        path: "productDetails/:id",
+        component: ProductDetails,
+      },
+      {
         path: "*",
         name: "not-found",
         component: NotFoundView,
@@ -50,7 +55,11 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
 
   scrollBehavior(to, from, savedPosition) {
-    return { x: 0, y: 0 };
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
   },
 
   // scrollBehavior(to, from, savedPosition) {
