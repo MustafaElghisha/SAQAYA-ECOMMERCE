@@ -128,7 +128,7 @@ export default {
 .section {
   padding-block: 5rem;
   &:not(:last-of-type) {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--clr-neutral-950-a30);
   }
 }
 

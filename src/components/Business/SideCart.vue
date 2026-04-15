@@ -10,11 +10,7 @@
       />
     </div>
     <ul class="cart__item-list">
-      <CartItem
-        v-for="item in cartItems"
-        :key="item.product.id"
-        :item="item"
-      ></CartItem>
+      <CartItem v-for="item in cartItems" :key="item.product.id" :item="item" />
     </ul>
     <OrderSummary :totalUSD="totalUSD" />
   </div>

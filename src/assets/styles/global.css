@@ -257,12 +257,12 @@
     padding: 0;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
+  /* @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 2rem;
     }
-  }
+  } */
 
   a {
     text-decoration: none;
@@ -346,5 +346,7 @@ which suggests default styling will be removed */
     background: var(--clr-primary-500);
     padding: 1rem 3rem;
     border-radius: 0.25rem;
+    cursor: pointer;
+    display: inline-block;
   }
 }

@@ -93,7 +93,7 @@ export default {
 }
 
 .explore__sort {
-  color: #fafafa;
+  color: var(--clr-neutral-100);
   background-color: #423840;
   border: none;
   padding: 1rem;

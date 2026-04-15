@@ -15,13 +15,8 @@
       <span class="cart__total-value">${{ totalUSD }}</span>
     </div>
 
-    <div class="cart__coupon">
-      <input class="cart__coupon-input" type="text" placeholder="Coupon Code" />
-      <span class="btn">Apply</span>
-    </div>
-
-    <div class="cart__order">
-      <span class="btn">Place Order</span>
+    <div class="cart__order btn">
+      <span>Place Order</span>
     </div>
   </div>
 </template>
@@ -46,15 +41,7 @@ export default {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.cart__coupon {
-  padding-block: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.cart__coupon-input {
-  padding: 1rem 1.5rem;
-  max-width: 18rem;
+.cart__total {
+  padding-bottom: 2rem;
 }
 </style>
