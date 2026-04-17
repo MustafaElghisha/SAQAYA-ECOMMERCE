@@ -1,11 +1,12 @@
 <template>
   <div class="cart" @click.stop>
     <div class="cart__header">
-      <h2 class="cart__title">Shopping Cart</h2>
+      <h2 class="cart__title" data-test="cart-title">Shopping Cart</h2>
       <img
         src="../../assets/icons/icon-cancel.svg"
         alt="close button"
         class="cart__close-icon"
+        data-test="close-cart"
         @click="closeCart"
       />
     </div>
