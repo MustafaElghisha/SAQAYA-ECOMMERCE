@@ -1,10 +1,12 @@
 <template>
-  <li class="feature">
+  <li class="feature" data-test="feature-item">
     <div class="feature-icon">
-      <img :src="feature.icon" :alt="feature.alt" />
+      <img :src="feature.icon" :alt="feature.alt" data-test="feature-img" />
     </div>
-    <h2 class="feature-title">{{ feature.title }}</h2>
-    <p class="feature-description">
+    <h2 class="feature-title" data-test="feature-title">
+      {{ feature.title }}
+    </h2>
+    <p class="feature-description" data-test="feature-description">
       {{ feature.description }}
     </p>
   </li>
