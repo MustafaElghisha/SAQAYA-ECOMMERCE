@@ -1,8 +1,15 @@
 <template>
   <li class="about__member">
-    <img class="about__member-image" :src="member.image" :alt="member.name" />
-    <h2 class="about__member-name">{{ member.name }}</h2>
-    <p class="about__member-role">{{ member.role }}</p>
+    <img
+      class="about__member-image"
+      :src="member.image"
+      :alt="member.name"
+      data-test="member-image"
+    />
+    <h2 class="about__member-name" data-test="member-name">
+      {{ member.name }}
+    </h2>
+    <p class="about__member-role" data-test="member-role">{{ member.role }}</p>
     <ul class="about__social-list">
       <li
         class="about__social-item"
