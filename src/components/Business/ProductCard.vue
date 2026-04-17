@@ -6,6 +6,7 @@
           :src="product.thumbnail"
           :alt="product.title"
           class="product-card__product-image"
+          data-test="product-image"
         />
         <img
           src="../../assets/icons/heart.svg"
@@ -16,6 +17,7 @@
         />
         <span
           class="product-card__add-to-cart"
+          data-test="add-to-cart"
           @click.stop.prevent="addToCart(product)"
         >
           Add To Cart
@@ -28,10 +30,14 @@
           class="product-card__product-view"
         />
       </div>
-      <h3 class="product-card__product-title">{{ product.title }}</h3>
+      <h3 class="product-card__product-title" data-test="product-title">
+        {{ product.title }}
+      </h3>
       <div class="product-card__pricing">
-        <span class="product-card__current-price">${{ product.price }}</span>
-        <span class="product-card__original-price">
+        <span class="product-card__current-price" data-test="current-price">
+          ${{ product.price }}
+        </span>
+        <span class="product-card__original-price" data-test="original-price">
           ${{
             (
               product.price +
@@ -48,7 +54,9 @@
             class="product-card__star-icon"
           />
         </span>
-        <span class="product-card__review-count">{{ product.rating }}</span>
+        <span class="product-card__review-count" data-test="review-count">
+          {{ product.rating }}
+        </span>
       </div>
     </router-link>
   </li>
