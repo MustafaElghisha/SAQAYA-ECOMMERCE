@@ -3,11 +3,11 @@ import VueRouter, { RouteConfig } from "vue-router";
 
 import MainLayout from "@/components/Layout/MainLayout.vue";
 import HomeView from "@/views/HomeView.vue";
-import AboutUsView from "@/views/AboutUsView.vue";
+import AboutView from "@/views/AboutView.vue";
 import ContactView from "@/views/ContactView.vue";
 import ProductsView from "@/views/Products/ProductsView.vue";
-import NotFoundView from "@/views/NotFoundView.vue";
-import ProductDetails from "@/views/Products/ProductDetails.vue";
+import ErrorView from "@/views/ErrorView.vue";
+import DetailsView from "@/views/Products/DetailsView.vue";
 
 Vue.use(VueRouter);
 
@@ -25,7 +25,7 @@ const routes: Array<RouteConfig> = [
       {
         path: "about-us",
         name: "about-us",
-        component: AboutUsView,
+        component: AboutView,
       },
       {
         path: "contact",
@@ -43,12 +43,12 @@ const routes: Array<RouteConfig> = [
       },
       {
         path: "productDetails/:id",
-        component: ProductDetails,
+        component: DetailsView,
       },
       {
         path: "*",
         name: "not-found",
-        component: NotFoundView,
+        component: ErrorView,
       },
     ],
   },
