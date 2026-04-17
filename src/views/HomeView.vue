@@ -55,13 +55,6 @@
 </template>
 
 <script>
-import hairDryerIcon from "@/assets/icons/Hair Dryer.svg";
-import bathTub from "@/assets/icons/Bath tub.svg";
-import fragranceIcon from "@/assets/icons/Perfume icon.svg";
-import cameraIcon from "@/assets/icons/Category-Camera.svg";
-import headphone from "@/assets/icons/Category-Headphone.svg";
-import candleIcon from "@/assets/icons/Candle.svg";
-
 import CategoriesList from "@/components/Business/CategoriesList.vue";
 import FeaturesList from "@/components/Business/FeaturesList.vue";
 import ProductsList from "@/components/Business/ProductsList.vue";
@@ -74,44 +67,8 @@ export default {
     ProductsList,
     CategoriesList,
   },
-  data() {
-    return {
-      categories: [
-        {
-          icon: hairDryerIcon,
-          alt: "Beauty category",
-          title: "Beauty",
-        },
-        {
-          icon: bathTub,
-          alt: "Furniture category",
-          title: "Furniture",
-        },
-        {
-          icon: fragranceIcon,
-          alt: "Fragrance category",
-          title: "Fragrance",
-        },
-        {
-          icon: cameraIcon,
-          alt: "Camera category",
-          title: "Camera",
-        },
-        {
-          icon: headphone,
-          alt: "Mobile Accessories category",
-          title: "Mobile Accessories",
-        },
-        {
-          icon: candleIcon,
-          alt: "Home Accessories category",
-          title: "Home Accessories",
-        },
-      ],
-    };
-  },
   computed: {
-    ...mapState("products", ["products"]),
+    ...mapState("products", ["products", "categories"]),
   },
 };
 </script>

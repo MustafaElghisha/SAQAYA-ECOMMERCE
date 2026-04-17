@@ -38,6 +38,10 @@ const routes: Array<RouteConfig> = [
         component: ProductsView,
       },
       {
+        path: "products/:category",
+        component: ProductsView,
+      },
+      {
         path: "productDetails/:id",
         component: ProductDetails,
       },

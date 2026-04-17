@@ -15,9 +15,7 @@
       </select>
     </div>
     <ProductsList :products="products" />
-    <span class="btn" @click="loadMore" v-if="this.products.length < 194">
-      Load more ...
-    </span>
+    <span class="btn" @click="loadMore">Load more ...</span>
   </div>
 </template>
 
@@ -26,6 +24,12 @@ import ProductsList from "@/components/Business/ProductsList.vue";
 import { mapState } from "vuex";
 
 export default {
+  mounted() {
+    this.$store.dispatch("products/fetchProducts", {
+      category: this.category,
+      reset: true,
+    });
+  },
   data() {
     return {
       selectedSort: "HighestRating",
@@ -47,6 +51,7 @@ export default {
       }
 
       this.$store.dispatch("products/fetchProducts", {
+        category: this.category,
         sortBy: this.sortBy,
         order: this.order,
         reset: true,
@@ -56,6 +61,7 @@ export default {
   methods: {
     loadMore() {
       this.$store.dispatch("products/fetchProducts", {
+        category: this.category,
         skip: this.products.length,
         sortBy: this.sortBy,
         order: this.order,
@@ -64,6 +70,9 @@ export default {
   },
   computed: {
     ...mapState("products", ["products"]),
+    category() {
+      return this.$route.params.category || null;
+    },
   },
   components: {
     ProductsList,

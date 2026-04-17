@@ -1,8 +1,8 @@
 <template>
   <ul class="categories__list">
     <CategoryCard
-      v-for="(category, index) in categories"
-      :key="index"
+      v-for="category in categories.slice(0, 6)"
+      :key="category"
       :category="category"
     />
   </ul>

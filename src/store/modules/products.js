@@ -2,11 +2,14 @@ import axios from "axios";
 
 const state = {
   products: [],
+  categories: [],
   cart: [],
 };
 
 const getters = {
   allProducts: (state) => state.products,
+
+  allCategories: (state) => state.categories,
 
   cartItems: (state) => state.cart,
 
@@ -32,6 +35,10 @@ const mutations = {
 
   RESET_PRODUCTS(state) {
     state.products = [];
+  },
+
+  SET_CATEGORIES(state, categories) {
+    state.categories = categories;
   },
 
   ADD_TO_CART(state, product) {
@@ -70,22 +77,37 @@ const actions = {
       sortBy = "rating",
       order = "desc",
       reset = false,
+      category = "",
     } = {}
   ) {
     if (reset) {
       commit("RESET_PRODUCTS");
     }
 
-    const res = await axios.get("https://dummyjson.com/products", {
-      params: {
-        limit,
-        skip,
-        sortBy,
-        order,
-      },
-    });
+    const baseUrl = category
+      ? `https://dummyjson.com/products/category/${category}`
+      : "https://dummyjson.com/products";
 
-    commit("APPEND_PRODUCTS", res.data.products);
+    try {
+      const res = await axios.get(baseUrl, {
+        params: {
+          limit,
+          skip,
+          sortBy,
+          order,
+        },
+      });
+
+      commit("APPEND_PRODUCTS", res.data.products);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  },
+
+  async fetchCategories({ commit }) {
+    const res = await axios.get("https://dummyjson.com/products/category-list");
+
+    commit("SET_CATEGORIES", res.data);
   },
 
   addToCart({ commit }, product) {

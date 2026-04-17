@@ -1,7 +1,8 @@
 <template>
-  <li class="category__item">
-    <img :src="category.icon" :alt="category.alt" class="category__item-icon" />
-    <h3 class="category__item-title">{{ category.title }}</h3>
+  <li>
+    <router-link :to="`/products/${category}`" class="category__item">
+      <h3 class="category__item-title">{{ category }}</h3>
+    </router-link>
   </li>
 </template>
 
@@ -14,10 +15,8 @@ export default {
 <style lang="css" scoped>
 .category__item {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 1rem;
   text-align: center;
   cursor: pointer;
   padding: 1.5rem 2.25rem;
@@ -26,19 +25,16 @@ export default {
   transition: all 200ms ease-in-out;
 
   &:hover {
-    color: var(--clr-neutral-0);
     background-color: var(--clr-primary-500);
     border-color: transparent;
-
-    .category__item-icon {
-      filter: invert(100%);
-    }
+  }
+  &:hover .category__item-title {
+    color: var(--clr-neutral-0);
   }
 }
-.category__item-icon {
-  transition: all 200ms ease-in-out;
-}
+
 .category__item-title {
+  color: var(--clr-neutral-950);
   font-size: var(--fs-md);
   font-weight: 400;
 }
