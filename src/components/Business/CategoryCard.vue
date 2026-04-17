@@ -23,6 +23,7 @@ export default {
   border-radius: 0.25rem;
   border: 1px solid rgba(0, 0, 0, 0.3);
   transition: all 200ms ease-in-out;
+  height: 100%;
 
   &:hover {
     background-color: var(--clr-primary-500);
