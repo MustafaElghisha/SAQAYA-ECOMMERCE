@@ -27,15 +27,15 @@ export default {
   transition: all 200ms ease-in-out;
 
   &:hover {
-    color: white;
+    color: var(--clr-neutral-0);
     background-color: var(--clr-primary-500);
     border-color: transparent;
 
     .about__stat-icon-wrapper {
-      background-color: white;
+      background-color: var(--clr-neutral-0);
       outline-color: rgba(255, 255, 255, 0.3);
 
-      > img {
+      .about__stat-icon {
         filter: invert(100%);
         transition: all 200ms ease-in-out;
       }
@@ -44,7 +44,7 @@ export default {
 }
 .about__stat-icon-wrapper {
   padding: 0.625rem;
-  background-color: black;
+  background-color: var(--clr-neutral-950);
   border-radius: 50%;
   outline: 12px solid rgba(47, 46, 48, 0.3);
   transition: all 200ms ease-in-out;

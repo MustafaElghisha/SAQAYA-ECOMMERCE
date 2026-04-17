@@ -26,11 +26,11 @@ export default {
   transition: all 200ms ease-in-out;
 
   &:hover {
-    color: white;
+    color: var(--clr-neutral-0);
     background-color: var(--clr-primary-500);
     border-color: transparent;
 
-    > img {
+    .category__item-icon {
       filter: invert(100%);
     }
   }

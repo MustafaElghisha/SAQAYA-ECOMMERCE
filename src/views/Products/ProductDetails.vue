@@ -17,7 +17,7 @@
             <img
               class="product__rating-icon"
               src="../../assets/icons/Five star.svg"
-              alt=""
+              alt="stars icon"
             />
             <span class="product__rating">{{ product.rating }}</span>
             <span class="product__stock">In Stock</span>
@@ -46,11 +46,11 @@
           <div class="product__actions">
             <div class="product__quantity">
               <span class="product__quantity-btn--dec">
-                <img src="../../assets/icons/icon-minus.svg" alt="" />
+                <img src="../../assets/icons/icon-minus.svg" alt="minus" />
               </span>
               <span class="product__quantity-value">2</span>
               <span class="product__quantity-btn--inc">
-                <img src="../../assets/icons/icon-plus.svg" alt="" />
+                <img src="../../assets/icons/icon-plus.svg" alt="plus" />
               </span>
             </div>
 
@@ -60,7 +60,7 @@
               <img
                 class="product__icon-img"
                 src="../../assets/icons/heart.svg"
-                alt=""
+                alt="heart icon"
                 height="32"
                 width="32"
               />
@@ -164,7 +164,7 @@ export default {
   border-radius: 0.25rem;
 }
 .product__content {
-  max-width: 400px;
+  max-width: 25rem;
 }
 .product__title {
   font-size: var(--fs-xl);
@@ -199,19 +199,19 @@ export default {
   border-radius: 0.25rem;
   color: var(--clr-neutral-100);
   font-size: var(--fs-xs);
-  padding: 0.25rem 12px;
+  padding: 0.25rem 0.75rem;
 }
 .product__description {
   font-size: var(--fs-sm);
-  padding-block: 24px;
+  padding-block: 1.5rem;
   max-width: 42ch;
   border-bottom: 1px solid var(--clr-neutral-950-a50);
 }
 .product__category {
-  padding-block: 32px 48px;
+  padding-block: 2rem 3rem;
 }
 .product__category-value {
-  padding-inline-start: 12px;
+  padding-inline-start: 0.75rem;
   font-size: var(--fs-lg);
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
@@ -220,7 +220,7 @@ export default {
 .product__actions {
   display: flex;
   gap: 1rem;
-  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
 }
 .product__quantity {
   border-radius: 0.25rem;
@@ -230,20 +230,20 @@ export default {
   flex: 1;
 }
 .product__quantity-btn--dec {
-  padding: 9px;
+  padding: 0.5625rem;
   border: 2px solid var(--clr-neutral-950-a50);
   border-start-start-radius: 0.25rem;
   border-end-start-radius: 0.25rem;
 }
 .product__quantity-value {
-  padding: 9px;
+  padding: 0.5625rem;
   border-block: 2px solid var(--clr-neutral-950-a50);
   flex: 1;
   display: flex;
   justify-content: center;
 }
 .product__quantity-btn--inc {
-  padding: 9px;
+  padding: 0.5625rem;
   border: 2px solid var(--clr-primary-500);
   border-start-end-radius: 0.25rem;
   border-end-end-radius: 0.25rem;
@@ -255,7 +255,7 @@ export default {
   border-radius: 0.25rem;
   color: var(--clr-neutral-100);
   font-weight: 500;
-  padding-block: 10px;
+  padding-block: 0.625rem;
   flex: 1;
 }
 .product__icon-wrapper {

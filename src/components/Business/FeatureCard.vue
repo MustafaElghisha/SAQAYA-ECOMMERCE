@@ -27,7 +27,7 @@ export default {
 }
 .feature-icon {
   padding: 0.625rem;
-  background-color: black;
+  background-color: var(--clr-neutral-950);
   border-radius: 50%;
   outline: 12px solid rgba(47, 46, 48, 0.3);
 }

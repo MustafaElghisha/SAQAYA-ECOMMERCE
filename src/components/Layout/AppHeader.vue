@@ -72,6 +72,10 @@ export default {
           link: "/contact",
         },
         {
+          name: "Products",
+          link: "/products",
+        },
+        {
           name: "About",
           link: "/about-us",
         },
@@ -100,6 +104,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .header__nav-list {
@@ -109,7 +115,7 @@ export default {
 }
 
 .header__nav-link {
-  color: #000000;
+  color: var(--clr-neutral-950);
 }
 
 .header__search {
@@ -123,7 +129,7 @@ export default {
   align-items: center;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
-  background-color: #f5f5f5;
+  background-color: var(--clr-neutral-200);
   font-size: var(--fs-xs);
 }
 

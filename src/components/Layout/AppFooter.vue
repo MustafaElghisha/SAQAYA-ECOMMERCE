@@ -134,7 +134,7 @@
 <style lang="css" scoped>
 .footer-wrapper {
   background-color: var(--clr-neutral-950);
-  color: #fafafa;
+  color: var(--clr-neutral-100);
 }
 
 .footer {
@@ -172,7 +172,7 @@
 .footer__subscribe-form {
   display: flex;
   align-items: center;
-  border: 2px solid #fafafa;
+  border: 2px solid var(--clr-neutral-100);
   border-radius: 0.25rem;
   padding: 0.75rem 1rem;
   margin-top: 1rem;
@@ -182,7 +182,7 @@
   border: none;
   outline: none;
   background: transparent;
-  color: #fafafa;
+  color: var(--clr-neutral-100);
 }
 .footer__send-icon {
   cursor: pointer;

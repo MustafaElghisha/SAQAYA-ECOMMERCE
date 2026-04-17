@@ -127,11 +127,11 @@ export default {
   border: none;
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
-  background-color: #f5f5f5;
+  background-color: var(--clr-neutral-200);
 }
 .contact__button {
   border: none;
-  color: #f5f5f5;
+  color: var(--clr-neutral-200);
   background-color: var(--clr-primary-500);
   padding: 1rem 3rem;
   border-radius: 0.25rem;

@@ -9,7 +9,7 @@
     <img
       class="cart__item-img"
       :src="item.product.thumbnail"
-      alt=""
+      alt="product thumbnail"
       width="54"
       height="54"
     />
