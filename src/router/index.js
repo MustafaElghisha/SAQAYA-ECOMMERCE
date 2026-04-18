@@ -1,5 +1,5 @@
 import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
+import VueRouter from "vue-router";
 
 import MainLayout from "@/components/Layout/MainLayout.vue";
 import HomeView from "@/views/HomeView.vue";
@@ -11,7 +11,7 @@ import DetailsView from "@/views/Products/DetailsView.vue";
 
 Vue.use(VueRouter);
 
-const routes: Array<RouteConfig> = [
+const routes = [
   {
     path: "/",
     component: MainLayout,
