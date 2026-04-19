@@ -1,5 +1,4 @@
-import Vue from "vue";
-import VueRouter, { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 import MainLayout from "@/components/Layout/MainLayout.vue";
 import HomeView from "@/views/HomeView.vue";
@@ -8,8 +7,6 @@ import ContactView from "@/views/ContactView.vue";
 import ProductsView from "@/views/Products/ProductsView.vue";
 import ErrorView from "@/views/ErrorView.vue";
 import DetailsView from "@/views/Products/DetailsView.vue";
-
-Vue.use(VueRouter);
 
 const routes = [
   {
