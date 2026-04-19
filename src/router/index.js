@@ -42,11 +42,7 @@ const routes = [
         path: "productDetails/:id",
         component: DetailsView,
       },
-      {
-        path: "*",
-        name: "not-found",
-        component: ErrorView,
-      },
+      { path: "/:pathMatch(.*)*", name: "not-found", component: ErrorView },
     ],
   },
 ];
