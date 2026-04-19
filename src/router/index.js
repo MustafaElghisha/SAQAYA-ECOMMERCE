@@ -1,5 +1,5 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
+import VueRouter, { createRouter, createWebHistory } from "vue-router";
 
 import MainLayout from "@/components/Layout/MainLayout.vue";
 import HomeView from "@/views/HomeView.vue";
@@ -54,9 +54,8 @@ const routes = [
   },
 ];
 
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(),
 
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -66,17 +65,6 @@ const router = new VueRouter({
     }
   },
 
-  // scrollBehavior(to, from, savedPosition) {
-  //   if (savedPosition) {
-  //     return savedPosition;
-  //   }
-
-  //   return new Promise((resolve) => {
-  //     setTimeout(() => {
-  //       resolve({ x: 0, y: 0 });
-  //     }, 0);
-  //   });
-  // },
   routes,
 });
 
