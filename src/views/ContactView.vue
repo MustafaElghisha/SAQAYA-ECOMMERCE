@@ -44,35 +44,26 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import phoneIcon from "@/assets/icons/icons-phone.svg";
 import mailIcon from "@/assets/icons/icons-mail.svg";
 import ContactCard from "@/components/Business/ContactCard.vue";
 
-export default {
-  data() {
-    return {
-      contactMethods: [
-        {
-          icon: phoneIcon,
-          alt: "phone icon",
-          title: "Call Us",
-          text: "We are available 24/7, 7 days a week.",
-          detail: "Phone: +8801611112222",
-        },
-        {
-          icon: mailIcon,
-          alt: "mail iocn",
-          title: "Write To US",
-          text: "Fill out our form and we will contact you within 24 hours.",
-        },
-      ],
-    };
+const contactMethods = [
+  {
+    icon: phoneIcon,
+    alt: "phone icon",
+    title: "Call Us",
+    text: "We are available 24/7, 7 days a week.",
+    detail: "Phone: +8801611112222",
   },
-  components: {
-    ContactCard,
+  {
+    icon: mailIcon,
+    alt: "mail iocn",
+    title: "Write To US",
+    text: "Fill out our form and we will contact you within 24 hours.",
   },
-};
+];
 </script>
 
 <style lang="css" scoped>
