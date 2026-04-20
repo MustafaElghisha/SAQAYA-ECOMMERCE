@@ -8,13 +8,11 @@
   </ul>
 </template>
 
-<script>
-import MemberCard from "@/components/Business/MemberCard.vue";
+<script setup>
+import MemberCard from "./MemberCard.vue";
+import { defineProps } from "vue";
 
-export default {
-  props: ["members"],
-  components: { MemberCard },
-};
+defineProps(["members"]);
 </script>
 
 <style lang="css" scoped>
