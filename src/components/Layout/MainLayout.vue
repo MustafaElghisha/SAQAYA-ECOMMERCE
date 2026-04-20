@@ -8,13 +8,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import AppHeader from "../Layout/AppHeader.vue";
 import AppFooter from "../Layout/AppFooter.vue";
-export default {
-  components: {
-    AppHeader,
-    AppFooter,
-  },
-};
 </script>
