@@ -22,32 +22,29 @@
   </li>
 </template>
 
-<script>
+<script setup>
 import twitterIcon from "@/assets/icons/Icon-Twitter-Black.svg";
 import instagramIcon from "@/assets/icons/Icon-Instagram-Black.svg";
 import linkedinIcon from "@/assets/icons/Icon-Linkedin-Black.svg";
 
-export default {
-  props: ["member"],
-  data() {
-    return {
-      socialLinks: [
-        {
-          icon: twitterIcon,
-          alt: "twitter icon",
-        },
-        {
-          icon: instagramIcon,
-          alt: "instagram icon",
-        },
-        {
-          icon: linkedinIcon,
-          alt: "linkedin icon",
-        },
-      ],
-    };
+import { defineProps } from "vue";
+
+defineProps(["member"]);
+
+const socialLinks = [
+  {
+    icon: twitterIcon,
+    alt: "twitter icon",
   },
-};
+  {
+    icon: instagramIcon,
+    alt: "instagram icon",
+  },
+  {
+    icon: linkedinIcon,
+    alt: "linkedin icon",
+  },
+];
 </script>
 
 <style lang="css" scoped>
