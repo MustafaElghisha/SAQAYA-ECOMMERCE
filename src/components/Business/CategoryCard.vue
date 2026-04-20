@@ -6,10 +6,10 @@
   </li>
 </template>
 
-<script>
-export default {
-  props: ["category"],
-};
+<script setup>
+import { defineProps } from "vue";
+
+defineProps(["category"]);
 </script>
 
 <style lang="css" scoped>
