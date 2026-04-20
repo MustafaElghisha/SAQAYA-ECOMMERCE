@@ -21,10 +21,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["totalUSD"],
-};
+<script setup>
+import { defineProps } from "vue";
+
+defineProps(["totalUSD"]);
 </script>
 
 <style lang="css" scoped>
