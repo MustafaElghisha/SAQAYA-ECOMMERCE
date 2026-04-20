@@ -37,6 +37,66 @@
   </div>
 </template>
 
+<script setup>
+import TomCruise from "@/assets/images/Tom-Cruise.png";
+import EmmaWatson from "@/assets/images/Emma-Watson.png";
+import WillSmith from "@/assets/images/Will-Smith.png";
+
+import shopIcon from "@/assets/icons/shop.svg";
+import saleIcon from "@/assets/icons/Sale.svg";
+import shoppingBagIcon from "@/assets/icons/Shopping bag.svg";
+import moneyBagIcon from "@/assets/icons/Moneybag.svg";
+
+import FeaturesList from "@/components/Business/FeaturesList.vue";
+import StatsList from "@/components/Business/StatsList.vue";
+import MembersList from "@/components/Business/MembersList.vue";
+
+const members = [
+  {
+    image: TomCruise,
+    name: "Tom Cruise",
+    role: "Founder & Chairman",
+  },
+  {
+    image: EmmaWatson,
+    name: "Emma Watson",
+    role: "Managing Director",
+  },
+  {
+    image: WillSmith,
+    name: "Will Smith",
+    role: "Product Designer",
+  },
+];
+
+const stats = [
+  {
+    icon: shopIcon,
+    alt: "shop icon",
+    number: "10.5k",
+    label: "Sellers active in our site",
+  },
+  {
+    icon: saleIcon,
+    alt: "slae icon",
+    number: "33k",
+    label: "Monthly Produduct Sale",
+  },
+  {
+    icon: shoppingBagIcon,
+    alt: "shopping bag icon",
+    number: "45.5k",
+    label: "Customer active in our site",
+  },
+  {
+    icon: moneyBagIcon,
+    alt: "money bag icon",
+    number: "25k",
+    label: "Annual gross sale in our site",
+  },
+];
+</script>
+
 <style lang="css" scoped>
 .section {
   margin-block: 8.75rem;
@@ -61,73 +121,3 @@
   margin-bottom: 1.5rem;
 }
 </style>
-
-<script>
-import TomCruise from "@/assets/images/Tom-Cruise.png";
-import EmmaWatson from "@/assets/images/Emma-Watson.png";
-import WillSmith from "@/assets/images/Will-Smith.png";
-
-import shopIcon from "@/assets/icons/shop.svg";
-import saleIcon from "@/assets/icons/Sale.svg";
-import shoppingBagIcon from "@/assets/icons/Shopping bag.svg";
-import moneyBagIcon from "@/assets/icons/Moneybag.svg";
-
-import FeaturesList from "@/components/Business/FeaturesList.vue";
-import StatsList from "@/components/Business/StatsList.vue";
-import MembersList from "@/components/Business/MembersList.vue";
-
-export default {
-  components: {
-    StatsList,
-    MembersList,
-    FeaturesList,
-  },
-  data() {
-    return {
-      members: [
-        {
-          image: TomCruise,
-          name: "Tom Cruise",
-          role: "Founder & Chairman",
-        },
-        {
-          image: EmmaWatson,
-          name: "Emma Watson",
-          role: "Managing Director",
-        },
-        {
-          image: WillSmith,
-          name: "Will Smith",
-          role: "Product Designer",
-        },
-      ],
-      stats: [
-        {
-          icon: shopIcon,
-          alt: "shop icon",
-          number: "10.5k",
-          label: "Sellers active in our site",
-        },
-        {
-          icon: saleIcon,
-          alt: "slae icon",
-          number: "33k",
-          label: "Monthly Produduct Sale",
-        },
-        {
-          icon: shoppingBagIcon,
-          alt: "shopping bag icon",
-          number: "45.5k",
-          label: "Customer active in our site",
-        },
-        {
-          icon: moneyBagIcon,
-          alt: "money bag icon",
-          number: "25k",
-          label: "Annual gross sale in our site",
-        },
-      ],
-    };
-  },
-};
-</script>
