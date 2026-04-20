@@ -12,10 +12,10 @@
   </li>
 </template>
 
-<script>
-export default {
-  props: ["feature"],
-};
+<script setup>
+import { defineProps } from "vue";
+
+defineProps(["feature"]);
 </script>
 
 <style lang="css" scoped>
