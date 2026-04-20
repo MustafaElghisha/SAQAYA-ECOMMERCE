@@ -220,47 +220,44 @@
 }
 </style>
 
-<script>
+<script setup>
 import facebookIcon from "@/assets/icons/Icon-Facebook.svg";
 import twitterIcon from "@/assets/icons/Icon-Twitter.svg";
 import linkedinIcon from "@/assets/icons/Linkedin.svg";
 import instagramIcon from "@/assets/icons/icon-instagram.svg";
 
-export default {
-  data() {
-    return {
-      supportItems: [
-        "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.",
-        "exclusive@gmail.com",
-        "+88015-88888-9999",
-      ],
-      accountItems: [
-        "My Account",
-        "Login / Register",
-        "Cart",
-        "Wishlist",
-        "Shop",
-      ],
-      quickLinkItems: ["Privacy Policy", "Terms Of Use", "FAQ", "Contact"],
-      socialLinks: [
-        {
-          icon: facebookIcon,
-          alt: "Facebook",
-        },
-        {
-          icon: twitterIcon,
-          alt: "Twitter",
-        },
-        {
-          icon: instagramIcon,
-          alt: "Instagram",
-        },
-        {
-          icon: linkedinIcon,
-          alt: "LinkedIn",
-        },
-      ],
-    };
+const supportItems = [
+  "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.",
+  "exclusive@gmail.com",
+  "+88015-88888-9999",
+];
+
+const accountItems = [
+  "My Account",
+  "Login / Register",
+  "Cart",
+  "Wishlist",
+  "Shop",
+];
+
+const quickLinkItems = ["Privacy Policy", "Terms Of Use", "FAQ", "Contact"];
+
+const socialLinks = [
+  {
+    icon: facebookIcon,
+    alt: "Facebook",
   },
-};
+  {
+    icon: twitterIcon,
+    alt: "Twitter",
+  },
+  {
+    icon: instagramIcon,
+    alt: "Instagram",
+  },
+  {
+    icon: linkedinIcon,
+    alt: "LinkedIn",
+  },
+];
 </script>
