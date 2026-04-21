@@ -82,72 +82,63 @@
       <div class="section__header">
         <span class="section__tag">More of this category</span>
       </div>
-      <ProductsList :products="products.slice(6, 10)" />
+      <ProductsList :products="productsStore.products.slice(6, 10)" />
     </section>
   </div>
 </template>
 
-<script>
-import axios from "axios";
-import { mapState } from "vuex";
-
+<script setup>
 import deliveryIcon from "../../assets/icons/icon-delivery.svg";
 import returnIcon from "../../assets/icons/Icon-return.svg";
 import DeliveryCard from "@/components/Business/DeliveryCard.vue";
 import ProductsList from "@/components/Business/ProductsList.vue";
 
-export default {
-  components: {
-    ProductsList,
-    DeliveryCard,
-  },
-  data() {
-    return {
-      product: null,
-      deliveryItems: [
-        {
-          icon: deliveryIcon,
-          title: "Free Delivery",
-          text: "Enter your postal code for Delivery Availability",
-        },
-        {
-          icon: returnIcon,
-          title: "Return Delivery",
-          text: "Free 30 Days Delivery Returns. Details",
-        },
-      ],
-    };
-  },
-  computed: {
-    ...mapState("products", ["products"]),
-  },
+import axios from "axios";
 
-  async beforeRouteEnter(to, from, next) {
-    try {
-      const res = await axios.get(
-        `https://dummyjson.com/products/${to.params.id}`
-      );
-      next((vm) => {
-        vm.product = res.data;
-      });
-    } catch (error) {
-      next({ name: "not-found" });
-    }
-  },
+import { onMounted, ref } from "vue";
+import { useRouter, onBeforeRouteUpdate, useRoute } from "vue-router";
+import { useProductsStore } from "@/stores/products";
 
-  async beforeRouteUpdate(to, from, next) {
-    try {
-      const res = await axios.get(
-        `https://dummyjson.com/products/${to.params.id}`
-      );
-
-      this.product = res.data;
-      next();
-    } catch (error) {
-      next({ name: "not-found" });
-    }
+const product = ref(null);
+const deliveryItems = [
+  {
+    icon: deliveryIcon,
+    title: "Free Delivery",
+    text: "Enter your postal code for Delivery Availability",
   },
-};
+  {
+    icon: returnIcon,
+    title: "Return Delivery",
+    text: "Free 30 Days Delivery Returns. Details",
+  },
+];
+
+const productsStore = useProductsStore();
+
+const router = useRouter();
+const route = useRoute();
+
+onMounted(async () => {
+  try {
+    const res = await axios.get(
+      `https://dummyjson.com/products/${route.params.id}`
+    );
+    product.value = res.data;
+  } catch (error) {
+    router.push({ name: "not-found" });
+  }
+});
+
+onBeforeRouteUpdate(async (to) => {
+  try {
+    const res = await axios.get(
+      `https://dummyjson.com/products/${to.params.id}`
+    );
+    product.value = res.data;
+  } catch (error) {
+    router.push({ name: "not-found" });
+  }
+});
 </script>
 
 <style lang="css" scoped>

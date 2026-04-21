@@ -18,7 +18,7 @@
         <span
           class="product-card__add-to-cart"
           data-test="add-to-cart"
-          @click.stop.prevent="addToCart(product)"
+          @click.stop.prevent="cartStore.addToCart(product)"
         >
           Add To Cart
         </span>
@@ -62,16 +62,13 @@
   </li>
 </template>
 
-<script>
-import { mapActions } from "vuex";
+<script setup>
+import { useCartStore } from "@/stores/cart";
+import { defineProps } from "vue";
 
-export default {
-  props: ["product"],
+defineProps(["product"]);
 
-  methods: {
-    ...mapActions("products", ["addToCart"]),
-  },
-};
+const cartStore = useCartStore();
 </script>
 
 <style lang="css" scoped>
