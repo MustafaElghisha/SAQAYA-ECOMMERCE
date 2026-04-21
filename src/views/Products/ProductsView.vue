@@ -14,70 +14,63 @@
         </option>
       </select>
     </div>
-    <ProductsList :products="products" />
+    <ProductsList :products="productsStore.products" />
     <span class="btn" @click="loadMore">Load more ...</span>
   </div>
 </template>
 
-<script>
+<script setup>
 import ProductsList from "@/components/Business/ProductsList.vue";
-import { mapState } from "vuex";
+import { useProductsStore } from "@/stores/products";
+import { computed, onMounted, ref, watch } from "vue";
+import { useRoute } from "vue-router";
 
-export default {
-  mounted() {
-    this.$store.dispatch("products/fetchProducts", {
-      category: this.category,
-      reset: true,
-    });
-  },
-  data() {
-    return {
-      selectedSort: "HighestRating",
-      sortBy: "rating",
-      order: "desc",
-    };
-  },
-  watch: {
-    selectedSort(newVal) {
-      if (newVal == "HighestRating") {
-        this.sortBy = "rating";
-        this.order = "desc";
-      } else if (newVal == "PriceLowHigh") {
-        this.sortBy = "price";
-        this.order = "asc";
-      } else if (newVal == "PriceHighLow") {
-        this.sortBy = "price";
-        this.order = "desc";
-      }
+const productsStore = useProductsStore();
+const route = useRoute();
 
-      this.$store.dispatch("products/fetchProducts", {
-        category: this.category,
-        sortBy: this.sortBy,
-        order: this.order,
-        reset: true,
-      });
-    },
-  },
-  methods: {
-    loadMore() {
-      this.$store.dispatch("products/fetchProducts", {
-        category: this.category,
-        skip: this.products.length,
-        sortBy: this.sortBy,
-        order: this.order,
-      });
-    },
-  },
-  computed: {
-    ...mapState("products", ["products"]),
-    category() {
-      return this.$route.params.category || null;
-    },
-  },
-  components: {
-    ProductsList,
-  },
-};
+onMounted(() => {
+  productsStore.fetchProducts({
+    category: category.value,
+    reset: true,
+  });
+});
+
+const selectedSort = ref("HighestRating");
+const sortBy = ref("rating");
+const order = ref("desc");
+
+const category = computed(() => {
+  return route.params.category || null;
+});
+
+watch(selectedSort, async (newVal) => {
+  if (newVal == "HighestRating") {
+    sortBy.value = "rating";
+    order.value = "desc";
+  } else if (newVal == "PriceLowHigh") {
+    sortBy.value = "price";
+    order.value = "asc";
+  } else if (newVal == "PriceHighLow") {
+    sortBy.value = "price";
+    order.value = "desc";
+  }
+
+  productsStore.fetchProducts({
+    category: category.value,
+    sortBy: sortBy.value,
+    order: order.value,
+    reset: true,
+  });
+});
+
+function loadMore() {
+  productsStore.fetchProducts({
+    category: category.value,
+    skip: productsStore.products.length,
+    sortBy: sortBy.value,
+    order: order.value,
+  });
+}
 </script>
 
 <style lang="css" scoped>

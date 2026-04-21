@@ -17,10 +17,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["contactMethod"],
-};
+<script setup>
+import { defineProps } from "vue";
+
+defineProps(["contactMethod"]);
 </script>
 
 <style lang="css" scoped>

@@ -4,15 +4,11 @@
   </ul>
 </template>
 
-<script>
+<script setup>
 import StatCard from "@/components/Business/StatCard.vue";
+import { defineProps } from "vue";
 
-export default {
-  props: ["stats"],
-  components: {
-    StatCard,
-  },
-};
+defineProps(["stats"]);
 </script>
 
 <style lang="css" scoped>

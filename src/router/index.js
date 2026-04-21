@@ -1,5 +1,4 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 import MainLayout from "@/components/Layout/MainLayout.vue";
 import HomeView from "@/views/HomeView.vue";
@@ -8,8 +7,6 @@ import ContactView from "@/views/ContactView.vue";
 import ProductsView from "@/views/Products/ProductsView.vue";
 import ErrorView from "@/views/ErrorView.vue";
 import DetailsView from "@/views/Products/DetailsView.vue";
-
-Vue.use(VueRouter);
 
 const routes = [
   {
@@ -45,38 +42,22 @@ const routes = [
         path: "productDetails/:id",
         component: DetailsView,
       },
-      {
-        path: "*",
-        name: "not-found",
-        component: ErrorView,
-      },
+      { path: "/:pathMatch(.*)*", name: "not-found", component: ErrorView },
     ],
   },
 ];
 
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(),
 
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
     } else {
-      return { x: 0, y: 0 };
+      return { top: 0 };
     }
   },
 
-  // scrollBehavior(to, from, savedPosition) {
-  //   if (savedPosition) {
-  //     return savedPosition;
-  //   }
-
-  //   return new Promise((resolve) => {
-  //     setTimeout(() => {
-  //       resolve({ x: 0, y: 0 });
-  //     }, 0);
-  //   });
-  // },
   routes,
 });
 

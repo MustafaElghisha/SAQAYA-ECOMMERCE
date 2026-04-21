@@ -12,7 +12,7 @@
       </div>
       <h2 class="section__title">Flash Sales</h2>
 
-      <ProductsList :products="products.slice(8, 12)" />
+      <ProductsList :products="productsStore.products.slice(8, 12)" />
       <div class="products__view-all">
         <router-link
           :to="{ name: 'products' }"
@@ -28,7 +28,7 @@
         <span class="section__tag">Categories</span>
       </div>
       <h2 class="section__title">Browse By Category</h2>
-      <CategoriesList :categories="categories" />
+      <CategoriesList :categories="categoriesStore.categories" />
     </section>
 
     <section class="section">
@@ -37,7 +37,7 @@
       </div>
       <h2 class="section__title">Explore Our products</h2>
 
-      <ProductsList :products="products.slice(0, 8)" />
+      <ProductsList :products="productsStore.products.slice(0, 8)" />
       <div class="products__view-all">
         <router-link
           :to="{ name: `products` }"
@@ -54,23 +54,16 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import CategoriesList from "@/components/Business/CategoriesList.vue";
 import FeaturesList from "@/components/Business/FeaturesList.vue";
 import ProductsList from "@/components/Business/ProductsList.vue";
 
-import { mapState } from "vuex";
+import { useProductsStore } from "../stores/products";
+import { useCategoriesStore } from "../stores/categories";
 
-export default {
-  components: {
-    FeaturesList,
-    ProductsList,
-    CategoriesList,
-  },
-  computed: {
-    ...mapState("products", ["products", "categories"]),
-  },
-};
+const productsStore = useProductsStore();
+const categoriesStore = useCategoriesStore();
 </script>
 
 <style lang="css" scoped>

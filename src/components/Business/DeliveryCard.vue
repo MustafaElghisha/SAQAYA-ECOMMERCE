@@ -16,10 +16,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["deliveryItem"],
-};
+<script setup>
+import { defineProps } from "vue";
+
+defineProps(["deliveryItem"]);
 </script>
 
 <style lang="css" scoped>

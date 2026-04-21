@@ -42,55 +42,46 @@
             width="32"
             height="32"
           />
-          <span class="header__cart-count">{{ cartCount }}</span>
+          <span class="header__cart-count">{{ cartStore.cartCount }}</span>
         </div>
       </div>
     </header>
     <transition name="cart">
-      <side-cart v-if="showCart" @close="toggleShowCart" />
+      <side-cart v-if="showCart" @close-cart="toggleShowCart" />
     </transition>
   </div>
 </template>
 
-<script>
-import { mapGetters } from "vuex";
+<script setup>
+import { ref } from "vue";
 import SideCart from "../Business/SideCart.vue";
-export default {
-  components: {
-    SideCart,
+import { useCartStore } from "@/stores/cart";
+
+const cartStore = useCartStore();
+
+const showCart = ref(false);
+const navLinks = [
+  {
+    name: "Home",
+    link: "/",
   },
-  data() {
-    return {
-      showCart: false,
-      navLinks: [
-        {
-          name: "Home",
-          link: "/",
-        },
-        {
-          name: "Contact",
-          link: "/contact",
-        },
-        {
-          name: "Products",
-          link: "/products",
-        },
-        {
-          name: "About",
-          link: "/about-us",
-        },
-      ],
-    };
+  {
+    name: "Contact",
+    link: "/contact",
   },
-  methods: {
-    toggleShowCart() {
-      this.showCart = !this.showCart;
-    },
+  {
+    name: "Products",
+    link: "/products",
   },
-  computed: {
-    ...mapGetters("products", ["cartCount"]),
+  {
+    name: "About",
+    link: "/about-us",
   },
-};
+];
+
+function toggleShowCart() {
+  showCart.value = !showCart.value;
+}
 </script>
 
 <style lang="css" scoped>

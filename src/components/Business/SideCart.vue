@@ -7,35 +7,30 @@
         alt="close button"
         class="cart__close-icon"
         data-test="close-cart"
-        @click="closeCart"
+        @click="emit('closeCart')"
       />
     </div>
     <ul class="cart__item-list">
-      <CartItem v-for="item in cartItems" :key="item.product.id" :item="item" />
+      <CartItem
+        v-for="item in cartStore.cart"
+        :key="item.product.id"
+        :item="item"
+      />
     </ul>
-    <OrderSummary :totalUSD="totalUSD" />
+    <OrderSummary :totalUSD="cartStore.totalUSD" />
   </div>
 </template>
 
-<script>
-import { mapGetters } from "vuex";
+<script setup>
+import { useCartStore } from "@/stores/cart";
 import CartItem from "./CartItem.vue";
 import OrderSummary from "./OrderSummary.vue";
 
-export default {
-  computed: {
-    ...mapGetters("products", ["cartItems", "totalUSD"]),
-  },
-  methods: {
-    closeCart() {
-      this.$emit("close");
-    },
-  },
-  components: {
-    CartItem,
-    OrderSummary,
-  },
-};
+import { defineEmits } from "vue";
+
+const cartStore = useCartStore();
+
+const emit = defineEmits(["closeCart"]);
 </script>
 
 <style lang="css" scoped>

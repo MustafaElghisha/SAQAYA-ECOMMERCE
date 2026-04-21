@@ -8,10 +8,10 @@
   </li>
 </template>
 
-<script>
-export default {
-  props: ["stat"],
-};
+<script setup>
+import { defineProps } from "vue";
+
+defineProps(["stat"]);
 </script>
 
 <style lang="css" scoped>

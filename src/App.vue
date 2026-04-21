@@ -2,11 +2,16 @@
   <router-view />
 </template>
 
-<script>
-export default {
-  mounted() {
-    this.$store.dispatch("products/fetchProducts");
-    this.$store.dispatch("products/fetchCategories");
-  },
-};
+<script setup>
+import { onMounted } from "vue";
+import { useProductsStore } from "./stores/products";
+import { useCategoriesStore } from "./stores/categories";
+
+const productsStore = useProductsStore();
+const categoriesStore = useCategoriesStore();
+
+onMounted(() => {
+  productsStore.fetchProducts();
+  categoriesStore.fetchCategories();
+});
 </script>

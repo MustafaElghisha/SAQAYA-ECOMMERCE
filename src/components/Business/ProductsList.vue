@@ -8,15 +8,11 @@
   </ul>
 </template>
 
-<script>
+<script setup>
 import ProductCard from "./ProductCard.vue";
+import { defineProps } from "vue";
 
-export default {
-  props: ["products"],
-  components: {
-    ProductCard,
-  },
-};
+defineProps(["products"]);
 </script>
 
 <style lang="css" scoped>

@@ -4,7 +4,7 @@
       src="../../assets/icons/icon-cancel.svg"
       alt="close button"
       class="cart__item-remove-icon"
-      @click="removeFromCart(item.product.id)"
+      @click="cartStore.removeFromCart(item.product.id)"
     />
     <img
       class="cart__item-img"
@@ -19,25 +19,20 @@
       type="number"
       :value="item.quantity"
       @input="
-        setQuantity({
-          quantity: Number($event.target.value),
-          productId: item.product.id,
-        })
+        cartStore.setQuantity(Number($event.target.value), item.product.id)
       "
     />
     <span class="cart__item-price">${{ item.product.price }}</span>
   </li>
 </template>
 
-<script>
-import { mapActions } from "vuex";
+<script setup>
+import { useCartStore } from "@/stores/cart";
+import { defineProps } from "vue";
 
-export default {
-  props: ["item"],
-  methods: {
-    ...mapActions("products", ["removeFromCart", "setQuantity"]),
-  },
-};
+defineProps(["item"]);
+
+const cartStore = useCartStore();
 </script>
 
 <style lang="css" scoped>

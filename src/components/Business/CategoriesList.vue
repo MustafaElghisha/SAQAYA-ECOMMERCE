@@ -8,15 +8,11 @@
   </ul>
 </template>
 
-<script>
-import CategoryCard from "@/components/Business/CategoryCard.vue";
+<script setup>
+import CategoryCard from "./CategoryCard.vue";
+import { defineProps } from "vue";
 
-export default {
-  props: ["categories"],
-  components: {
-    CategoryCard,
-  },
-};
+defineProps(["categories"]);
 </script>
 
 <style lang="css" scoped>
